@@ -40,7 +40,7 @@
       </ImageView>
       <Button layoutX="175.0" layoutY="605.0" mnemonicParsing="false" text="Delete" />
       <Button layoutX="110.0" layoutY="606.0" mnemonicParsing="false" text="Edit..." />
-      <Button layoutX="45.0" layoutY="605.0" mnemonicParsing="false" style="-fx-background-color: #93158B" text="New..." />
+      <Button layoutX="45.0" layoutY="605.0" mnemonicParsing="false" text="New..." />
       <Button layoutX="338.0" layoutY="605.0" mnemonicParsing="false" text="▼" />
       <Button layoutX="303.0" layoutY="605.0" mnemonicParsing="false" text="▲" />
       <Button layoutX="373.0" layoutY="606.0" mnemonicParsing="false" text="Delete" />
