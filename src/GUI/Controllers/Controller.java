@@ -17,6 +17,8 @@ public class Controller {
     @FXML
     private Button btnAppClose;
     @FXML
+    private Button btnNewPlaylist;
+    @FXML
     private Label welcomeText;
 
     @FXML
@@ -36,8 +38,11 @@ public class Controller {
         }
 
     }
+    public void openNewSongWindow(ActionEvent actionEvent) {
+        System.out.println("Läuft");
+    }
 
-
-    public void OpenNewPlaylist(MouseEvent mouseEvent) {
+    public void openNewPlaylistWindow(ActionEvent actionEvent) {
+        System.out.println("Läuft Auch");
     }
 }
