@@ -3,6 +3,8 @@ package GUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.awt.event.ActionEvent;
+
 public class Controller {
     @FXML
     private Label welcomeText;
@@ -12,5 +14,4 @@ public class Controller {
         welcomeText.setText("Welcome to MyTunes Application!");
     }
 
-   // public void openSongTable
-}
+   }

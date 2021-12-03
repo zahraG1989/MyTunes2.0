@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="789.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="789.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
    <children>
       <ImageView fitHeight="34.0" fitWidth="28.0" layoutX="31.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -37,7 +37,7 @@
       <Slider layoutX="50.0" layoutY="83.0" prefHeight="16.0" prefWidth="134.0" />
       <Button layoutX="184.0" layoutY="579.0" mnemonicParsing="false" text="Delete" />
       <Button layoutX="85.0" layoutY="579.0" mnemonicParsing="false" text="Edit..." />
-      <Button layoutX="20.0" layoutY="579.0" mnemonicParsing="false" text="New..." />
+      <Button layoutX="20.0" layoutY="579.0" mnemonicParsing="false"  text="New..." />
       <Button layoutX="318.0" layoutY="579.0" mnemonicParsing="false" text="▼" />
       <Button layoutX="276.0" layoutY="579.0" mnemonicParsing="false" text="▲" />
       <Button layoutX="374.0" layoutY="579.0" mnemonicParsing="false" text="Delete" />
