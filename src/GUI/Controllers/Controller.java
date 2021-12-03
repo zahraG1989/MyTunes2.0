@@ -1,4 +1,4 @@
-package GUI;
+package GUI.Controllers;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -36,7 +37,7 @@ public class Controller {
 
     }
 
-    public void openNewSongWindow(ActionEvent actionEvent) {
-        System.out.println("hello");
+
+    public void OpenNewPlaylist(MouseEvent mouseEvent) {
     }
 }
