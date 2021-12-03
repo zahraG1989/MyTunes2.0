@@ -20,7 +20,7 @@
             <Image url="@../../../../../../../Downloads/Download.png" />
          </image>
       </ImageView>
-      <TableView layoutX="19.0" layoutY="164.0" prefHeight="400.0" prefWidth="226.0" style="-fx-background-color: #FFDCFD #FFDCFD;">
+      <TableView layoutX="19.0" layoutY="164.0" prefHeight="400.0" prefWidth="226.0" style="-fx-background-color: #FFDCFD;">
         <columns>
           <TableColumn prefWidth="75.0" text="Name" />
           <TableColumn prefWidth="75.0" text="Songs" />
@@ -43,7 +43,7 @@
       <Button layoutX="318.0" layoutY="579.0" mnemonicParsing="false" text="▼" />
       <Button layoutX="276.0" layoutY="579.0" mnemonicParsing="false" text="▲" />
       <Button layoutX="374.0" layoutY="579.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="491.0" layoutY="579.0" mnemonicParsing="false" text="New..." />
+      <Button layoutX="491.0" layoutY="579.0" mnemonicParsing="false" onAction="#openSongTable" text="New..." />
       <Button layoutX="560.0" layoutY="579.0" mnemonicParsing="false" text="Edit..." />
       <Button layoutX="616.0" layoutY="579.0" mnemonicParsing="false" text="Delete" />
       <Button layoutX="724.0" layoutY="579.0" mnemonicParsing="false" text="Close" />
