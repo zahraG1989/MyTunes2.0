@@ -9,7 +9,7 @@ public class DAOTest {
     }
     public static void createSong() throws Exception {
         SongDAO songDAO = new SongDAO();
-        Song test = new Song(1,"CategoryTest","name of a song");
+        Song test = new Song(1,"CategoryTest","name of a song","file/:C:/Users/zkooh/OneDrive/Área%20de%20Trabalho/music1","Zahra");
         songDAO.createSong(test);
     }
 }

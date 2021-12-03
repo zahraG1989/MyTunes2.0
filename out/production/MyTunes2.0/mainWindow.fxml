@@ -37,14 +37,14 @@
       <Slider layoutX="50.0" layoutY="83.0" prefHeight="16.0" prefWidth="134.0" />
       <Button layoutX="184.0" layoutY="579.0" mnemonicParsing="false" text="Delete" />
       <Button layoutX="85.0" layoutY="579.0" mnemonicParsing="false" text="Edit..." />
-      <Button layoutX="20.0" layoutY="579.0" mnemonicParsing="false"  text="New..." />
+      <Button layoutX="20.0" layoutY="579.0" mnemonicParsing="false" text="New..." />
       <Button layoutX="318.0" layoutY="579.0" mnemonicParsing="false" text="▼" />
       <Button layoutX="276.0" layoutY="579.0" mnemonicParsing="false" text="▲" />
       <Button layoutX="374.0" layoutY="579.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="491.0" layoutY="579.0" mnemonicParsing="false" text="New..." />
+      <Button fx:id="btnNewSong" layoutX="491.0" layoutY="579.0" mnemonicParsing="false" onAction="#openNewSongWindow" text="New..." />
       <Button layoutX="560.0" layoutY="579.0" mnemonicParsing="false" text="Edit..." />
       <Button layoutX="616.0" layoutY="579.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="724.0" layoutY="579.0" mnemonicParsing="false" text="Close" />
+      <Button fx:id="btnAppClose" layoutX="724.0" layoutY="579.0" mnemonicParsing="false" onAction="#closeWindow" text="Close" />
       <Label layoutX="18.0" layoutY="130.0" text="Playlist">
          <font>
             <Font size="18.0" />

@@ -4,11 +4,31 @@ public class Song {
     private int id;
     private String category;
     private String name;
+    private String songFile;
+    private String artist;
 
-    public Song(int id, String category, String name) {
+    public Song(int id, String name,String category,String songFile,String artist) {
         this.id = id;
         this.category = category;
         this.name = name;
+        this.songFile = songFile;
+        this.artist = artist;
+    }
+
+    public String getSongFile() {
+        return songFile;
+    }
+
+    public void setSongFile(String songFile) {
+        this.songFile = songFile;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 
     public int getId() {
@@ -35,3 +55,4 @@ public class Song {
         this.name = name;
     }
 }
+
