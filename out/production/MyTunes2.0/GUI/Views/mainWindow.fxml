@@ -33,15 +33,15 @@
       <Slider layoutX="61.0" layoutY="84.0" prefHeight="16.0" prefWidth="123.0" />
       <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="29.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-      <Button layoutX="147.0" layoutY="580.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="85.0" layoutY="580.0" mnemonicParsing="false" text="Edit..." />
+      <Button fx:id="btnDeletePlaylist" layoutX="147.0" layoutY="580.0" mnemonicParsing="false" onAction="#deletePlaylist" text="Delete" />
+      <Button fx:id="btnEditPlaylist" layoutX="85.0" layoutY="580.0" mnemonicParsing="false" onAction="#editPlaylist" text="Edit..." />
       <Button fx:id="btnNewPlaylist" layoutX="20.0" layoutY="580.0" mnemonicParsing="false" onAction="#openNewPlaylistWindow" text="New..." />
-      <Button layoutX="302.0" layoutY="580.0" mnemonicParsing="false" text="▼" />
-      <Button layoutX="260.0" layoutY="580.0" mnemonicParsing="false" text="▲" />
-      <Button layoutX="365.0" layoutY="580.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="btnMoveSongDown" layoutX="302.0" layoutY="580.0" mnemonicParsing="false" onAction="#moveSongDown" text="▼" />
+      <Button fx:id="btnMoveSongUp" layoutX="260.0" layoutY="580.0" mnemonicParsing="false" onAction="#moveSongUp" text="▲" />
+      <Button fx:id="btnDeleteSongFromPlaylist" layoutX="365.0" layoutY="580.0" mnemonicParsing="false" onAction="#deleteSongFromPlaylist" text="Delete" />
       <Button fx:id="btnNewSong" layoutX="475.0" layoutY="580.0" mnemonicParsing="false" onAction="#openNewSongWindow" text="New..." />
-      <Button layoutX="539.0" layoutY="580.0" mnemonicParsing="false" text="Edit..." />
-      <Button layoutX="598.0" layoutY="580.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="btnEditSongs" layoutX="539.0" layoutY="580.0" mnemonicParsing="false" onAction="#editSong" text="Edit..." />
+      <Button fx:id="btnDeleteSong" layoutX="598.0" layoutY="580.0" mnemonicParsing="false" onAction="#deleteSong" text="Delete" />
       <Button fx:id="btnAppClose" layoutX="714.0" layoutY="580.0" mnemonicParsing="false" onAction="#closeWindow" text="Close" />
       <Label layoutX="26.0" layoutY="150.0" text="Playlist">
          <font>
@@ -63,7 +63,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="432.0" layoutY="198.0" mnemonicParsing="false" text="◄">
+      <Button fx:id="btnAddSong" layoutX="432.0" layoutY="198.0" mnemonicParsing="false" onAction="#addSongToPlaylist" text="◄">
          <font>
             <Font size="14.0" />
          </font>
