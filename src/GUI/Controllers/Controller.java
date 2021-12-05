@@ -95,6 +95,9 @@ public class Controller {
 
             Stage stage = (Stage) btnDeleteSong.getScene().getWindow();
             stage.close();
+
+            /* We have to adapt this method so that it actually deletes the Song.
+            For now it is just closing everything. */
         }
     }
 }
