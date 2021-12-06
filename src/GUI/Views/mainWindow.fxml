@@ -10,20 +10,19 @@
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#OpenNewPlaylist" prefHeight="733.0" prefWidth="856.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="782.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Controller">
    <children>
-      <TableView layoutX="26.0" layoutY="196.0" prefHeight="400.0" prefWidth="226.0" style="-fx-background-color: #FFDCFD #FFDCFD;">
+      <TableView layoutX="20.0" layoutY="187.0" prefHeight="380.0" prefWidth="226.0" style="-fx-background-color: #FFDCFD #FFDCFD;">
         <columns>
           <TableColumn prefWidth="75.0" text="Name" />
           <TableColumn prefWidth="75.0" text="Songs" />
             <TableColumn prefWidth="75.0" text="Time" />
         </columns>
       </TableView>
-      <ListView layoutX="283.0" layoutY="198.0" prefHeight="400.0" prefWidth="159.0" style="-fx-background-color: #FFDCFD #FFDCFD;" />
-      <TableView layoutX="512.0" layoutY="196.0" prefHeight="400.0" prefWidth="302.0" style="-fx-background-color: #FFDCFD #FFDCFD;">
+      <ListView layoutX="259.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" style="-fx-background-color: #FFDCFD #FFDCFD;" />
+      <TableView layoutX="466.0" layoutY="187.0" prefHeight="380.0" prefWidth="302.0" style="-fx-background-color: #FFDCFD #FFDCFD;">
         <columns>
           <TableColumn prefWidth="75.0" text="Title" />
           <TableColumn prefWidth="72.0" text="Artist" />
@@ -31,53 +30,53 @@
             <TableColumn prefWidth="75.0" text="Category" />
         </columns>
       </TableView>
-      <Slider layoutX="61.0" layoutY="83.0" prefHeight="16.0" prefWidth="123.0" />
+      <Slider layoutX="61.0" layoutY="84.0" prefHeight="16.0" prefWidth="123.0" />
       <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="29.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-      <Button layoutX="175.0" layoutY="605.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="110.0" layoutY="606.0" mnemonicParsing="false" text="Edit..." />
-      <Button layoutX="45.0" layoutY="605.0" mnemonicParsing="false" style="-fx-background-color: #93158B" text="New..." />
-      <Button layoutX="338.0" layoutY="605.0" mnemonicParsing="false" text="▼" />
-      <Button layoutX="303.0" layoutY="605.0" mnemonicParsing="false" text="▲" />
-      <Button layoutX="373.0" layoutY="606.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="523.0" layoutY="605.0" mnemonicParsing="false" text="New..." />
-      <Button layoutX="585.0" layoutY="605.0" mnemonicParsing="false" text="Edit..." />
-      <Button layoutX="643.0" layoutY="605.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="760.0" layoutY="605.0" mnemonicParsing="false" text="Close" />
-      <Label layoutX="32.0" layoutY="164.0" text="Playlist">
+      <Button fx:id="btnDeletePlaylist" layoutX="147.0" layoutY="580.0" mnemonicParsing="false" onAction="#deletePlaylist" text="Delete" />
+      <Button fx:id="btnEditPlaylist" layoutX="85.0" layoutY="580.0" mnemonicParsing="false" onAction="#editPlaylist" text="Edit..." />
+      <Button fx:id="btnNewPlaylist" layoutX="20.0" layoutY="580.0" mnemonicParsing="false" onAction="#openNewPlaylistWindow" text="New..." />
+      <Button fx:id="btnMoveSongDown" layoutX="302.0" layoutY="580.0" mnemonicParsing="false" onAction="#moveSongDown" text="▼" />
+      <Button fx:id="btnMoveSongUp" layoutX="260.0" layoutY="580.0" mnemonicParsing="false" onAction="#moveSongUp" text="▲" />
+      <Button fx:id="btnDeleteSongFromPlaylist" layoutX="365.0" layoutY="580.0" mnemonicParsing="false" onAction="#deleteSongFromPlaylist" text="Delete" />
+      <Button fx:id="btnNewSong" layoutX="475.0" layoutY="580.0" mnemonicParsing="false" onAction="#openNewSongWindow" text="New..." />
+      <Button fx:id="btnEditSongs" layoutX="539.0" layoutY="580.0" mnemonicParsing="false" onAction="#editSong" text="Edit..." />
+      <Button fx:id="btnDeleteSong" layoutX="598.0" layoutY="580.0" mnemonicParsing="false" onAction="#deleteSong" text="Delete" />
+      <Button fx:id="btnAppClose" layoutX="714.0" layoutY="580.0" mnemonicParsing="false" onAction="#closeWindow" text="Close" />
+      <Label layoutX="26.0" layoutY="150.0" text="Playlist">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="287.0" layoutY="164.0" text="Songs onPlaylist">
+      <Label layoutX="256.0" layoutY="150.0" text="Songs onPlaylist">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="514.0" layoutY="164.0" text="Songs">
+      <Label layoutX="468.0" layoutY="150.0" text="Songs">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Circle fill="#f2e5ef" layoutX="108.0" layoutY="49.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#ebdce7" layoutX="156.0" layoutY="54.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#f2e3ee" layoutX="58.0" layoutY="54.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button layoutX="763.0" layoutY="37.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="43.0" text="🔎">
+      <Button layoutX="725.0" layoutY="39.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="43.0" text="🔎">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="462.0" layoutY="202.0" mnemonicParsing="false" text="◄">
+      <Button fx:id="btnAddSong" layoutX="432.0" layoutY="198.0" mnemonicParsing="false" onAction="#addSongToPlaylist" text="◄">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField layoutX="598.0" layoutY="43.0" />
-      <Label layoutX="550.0" layoutY="43.0" text="Filter:">
+      <TextField layoutX="554.0" layoutY="43.0" />
+      <Label layoutX="512.0" layoutY="44.0" text="Filter:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="btnPlay" layoutX="65.0" layoutY="13.0" mnemonicParsing="false" onAction="#PlayMusic" prefHeight="62.0" prefWidth="64.0" style="-fx-background-radius: 100;" text="Button" />
+      <Button layoutX="135.0" layoutY="32.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="Button" />
+      <Button layoutX="14.0" layoutY="33.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="Button" />
    </children>
    <effect>
       <Blend />
