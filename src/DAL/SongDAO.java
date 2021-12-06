@@ -17,15 +17,22 @@ public class SongDAO {
     public Song createSong(Song song) throws Exception {
         Song songCreated=null;
         try(Connection con = cm.getConnection()){
-            String sqlSelectSong = "INSERT INTO SONGS VALUES(?,?)";
+            String sqlSelectSong = "INSERT INTO SONGS VALUES(?,?,?,?)";
             PreparedStatement pststmtSelectSong = con.prepareStatement(sqlSelectSong, Statement.RETURN_GENERATED_KEYS);
-            ResultSet rs = pststmtSelectSong.executeQuery();
-            while(rs.next()){
-                songCreated = new Song(rs.getInt("id"),
-                                        rs.getString("Sname"),
-                                        rs.getString("Categori"));
+            pststmtSelectSong.setString(1,song.getName());
+            pststmtSelectSong.setString(2,song.getCategory());
+           // pststmtSelectSong.setString(3,song.getSongFile());
+           // pststmtSelectSong.setString(4,song.getArtist());
+            pststmtSelectSong.execute();
+            ResultSet rs = pststmtSelectSong.getGeneratedKeys();
+            int idSong=0;
+            while(rs.next()) {
+                idSong = rs.getInt(1);
             }
+           // songCreated = new Song(idSong ,song.getName(),song.getCategory(),song.getSongFile(),song.getArtist());
+
         }
         return songCreated;
     }
 }
+
