@@ -4,12 +4,17 @@ import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Controller {
     public Button btnDeleteSongFromPlaylist;
@@ -50,13 +55,23 @@ public class Controller {
         }
 
     }
-    public void openNewSongWindow(ActionEvent actionEvent) {
-        System.out.println("Works");
+    @FXML
+
+    public void openNewSongWindow(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/songTable.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("New Song");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void openNewPlaylistWindow(ActionEvent actionEvent) {
         System.out.println("works too");
     }
+
+
 
     public void deletePlaylist(ActionEvent actionEvent) {
         System.out.println("works too");
@@ -100,4 +115,6 @@ public class Controller {
             For now it is just closing everything. */
         }
     }
+
+
 }
