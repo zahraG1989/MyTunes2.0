@@ -74,7 +74,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="65.0" layoutY="13.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="64.0" style="-fx-background-radius: 100;" text="Button" />
+      <Button fx:id="btnPlay" layoutX="65.0" layoutY="13.0" mnemonicParsing="false" onAction="#PlayMusic" prefHeight="62.0" prefWidth="64.0" style="-fx-background-radius: 100;" text="Button" />
       <Button layoutX="135.0" layoutY="32.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="Button" />
       <Button layoutX="14.0" layoutY="33.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="Button" />
    </children>
