@@ -46,7 +46,6 @@ public class Controller {
     public void closeWindow(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Close the Application ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
-        //comments
 
         if (alert.getResult() == ButtonType.YES) {
 
