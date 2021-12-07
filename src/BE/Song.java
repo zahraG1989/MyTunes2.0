@@ -4,14 +4,17 @@ public class Song {
     private int id;
     private String category;
     private String name;
+
     private String songFile;
     private String artist;
 
     public Song(int id, String name,String category,String songFile,String artist) {
         this.id = id;
+        this.artist = artist;
         this.category = category;
         this.name = name;
         this.songFile = songFile;
+
         this.artist = artist;
     }
 
