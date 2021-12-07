@@ -74,7 +74,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="65.0" layoutY="13.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="64.0" rotate="90.0" style="-fx-background-radius: 100;" text="▲">
+      <Button fx:id="btnPlayMusic" layoutX="65.0" layoutY="13.0" mnemonicParsing="false" onAction="#playMusic" prefHeight="62.0" prefWidth="64.0" rotate="90.0" style="-fx-background-radius: 100;" text="▲">
          <font>
             <Font name="System Bold" size="28.0" />
          </font></Button>

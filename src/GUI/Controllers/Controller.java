@@ -1,10 +1,7 @@
 package GUI.Controllers;
 
 import BE.Playlist;
-import GUI.Model.ListModel;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.embed.swing.JFXPanel;
+import GUI.Model.playlistModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -21,20 +17,26 @@ import java.io.File;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    public Button btnDeleteSongFromPlaylist;
-    public Button btnNewSong;
-    public Button btnAddSong;
-    public Button btnEditSongs;
+    @FXML
+    private Button btnDeleteSongFromPlaylist;
+    @FXML
+    private  Button btnNewSong;
+    @FXML
+    private Button btnAddSong;
+    @FXML
+    private  Button btnEditSongs;
 
-    public TableColumn songTitle;
-    public TableColumn artist;
-    public TableColumn category;
-    public TableColumn timeOfSong;
+    @FXML
+    private  TableColumn songTitle;
+    @FXML
+    private  TableColumn artist;
+    @FXML
+    private  TableColumn category;
+    @FXML
+    private  TableColumn timeOfSong;
 
     @FXML
     private ListView<Playlist> listSongsOnPlaylist;
@@ -42,6 +44,8 @@ public class Controller implements Initializable {
     public Button btnDeleteSong;
     @FXML
     private Button btnAppClose;
+    @FXML
+    private Button btnPlayMusic;
     @FXML
     private Button btnNewPlaylist;
     @FXML
@@ -55,7 +59,7 @@ public class Controller implements Initializable {
     @FXML
     private Label welcomeText;
 
-    private ListModel listModel;
+    private playlistModel playlistModel;
 
 
     @FXML
@@ -101,31 +105,38 @@ public class Controller implements Initializable {
     }
 
 
-    public void deletePlaylist(ActionEvent actionEvent) {
+    @FXML
+    private  void deletePlaylist(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
-    public void editPlaylist(ActionEvent actionEvent) {
+    @FXML
+    private  void editPlaylist(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
-    public void moveSongDown(ActionEvent actionEvent) {
+    @FXML
+    private  void moveSongDown(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
-    public void moveSongUp(ActionEvent actionEvent) {
+    @FXML
+    private void moveSongUp(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
-    public void deleteSongFromPlaylist(ActionEvent actionEvent) {
+    @FXML
+    private void deleteSongFromPlaylist(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
-    public void addSongToPlaylist(ActionEvent actionEvent) {
+    @FXML
+    private void addSongToPlaylist(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
-    public void editSong(ActionEvent actionEvent) {
+    @FXML
+    private  void editSong(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
@@ -146,21 +157,24 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void PlayMusic(ActionEvent actionEvent) {
+    private void playMusic(ActionEvent actionEvent) {
         File file = new File("C:/Users/zkooh/IdeaProjects/MyTunes2.0/myTunes'songs/MyTunes/01 - Easy.mp3");
         System.out.println("file:" + file.toURI().toString());
         Media media = new Media(file.toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
 
+
+       // btnPlayMusic.setText("||");
+
     }
 
     public Controller(){
-        listModel = new ListModel();
+        playlistModel = new playlistModel();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        listSongsOnPlaylist.getItems().setAll(listModel.getList());
+        listSongsOnPlaylist.getItems().setAll(playlistModel.getList());
     }
 }
