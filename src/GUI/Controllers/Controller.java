@@ -21,14 +21,12 @@ public class Controller {
     public Button btnNewSong;
     public Button btnAddSong;
     public Button btnEditSongs;
-
     public TableColumn songTitle;
     public TableColumn artist;
     public TableColumn category;
     public TableColumn timeOfSong;
 
-    @FXML
-    private Button btnDeleteSong;
+    public Button btnDeleteSong;
     @FXML
     private Button btnAppClose;
     @FXML
