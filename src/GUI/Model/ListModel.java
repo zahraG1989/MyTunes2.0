@@ -8,21 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListModel {
-    List<Playlist> songsOnPlaylists = new ArrayList<>();
+    List<Playlist> playlistOne = new ArrayList<>();
 
     public ListModel() {
         Playlist Song1 = new Playlist (1,"Sunshine");
         Playlist Song2 = new Playlist(2,"Easy");
         Playlist Song3 = new Playlist(3,"Nachtbaden");
 
-        songsOnPlaylists.add(Song1);
-        songsOnPlaylists.add(Song2);
-        songsOnPlaylists.add(Song3);
+        playlistOne.add(Song1);
+        playlistOne.add(Song2);
+        playlistOne.add(Song3);
     }
 
     public ObservableList<Playlist> getList() {
         ObservableList<Playlist> list = FXCollections.observableArrayList();
-        list.addAll(songsOnPlaylists);
+        list.addAll(playlistOne);
         return list;
     }
 

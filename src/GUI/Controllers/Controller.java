@@ -63,7 +63,8 @@ public class Controller implements Initializable {
         welcomeText.setText("Welcome to MyTunes Application!");
     }
 
-    public void closeWindow(ActionEvent actionEvent) {
+    @FXML
+    private void closeWindow(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Close the Application ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
 
@@ -75,7 +76,8 @@ public class Controller implements Initializable {
         }
 
     }
-    public void openNewSongWindow(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void openNewSongWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/songTable.fxml"));
         Parent root = loader.load();
@@ -85,7 +87,8 @@ public class Controller implements Initializable {
         stage.show();
     }
 
-    public void openNewPlaylistWindow(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void openNewPlaylistWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("GUI/Views/playlist.fxml"));
         Parent root = loader.load();
@@ -126,7 +129,8 @@ public class Controller implements Initializable {
         System.out.println("works too");
     }
 
-    public void deleteSong(ActionEvent actionEvent) {
+    @FXML
+    private void deleteSong(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete the Song ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
         //comments
@@ -141,7 +145,8 @@ public class Controller implements Initializable {
         }
     }
 
-    public void PlayMusic(ActionEvent actionEvent) {
+    @FXML
+    private void PlayMusic(ActionEvent actionEvent) {
         File file = new File("C:/Users/zkooh/IdeaProjects/MyTunes2.0/myTunes'songs/MyTunes/01 - Easy.mp3");
         System.out.println("file:" + file.toURI().toString());
         Media media = new Media(file.toURI().toString());
