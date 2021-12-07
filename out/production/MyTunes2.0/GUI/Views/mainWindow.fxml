@@ -39,23 +39,24 @@
       <Button fx:id="btnMoveSongDown" layoutX="302.0" layoutY="580.0" mnemonicParsing="false" onAction="#moveSongDown" text="▼" />
       <Button fx:id="btnMoveSongUp" layoutX="260.0" layoutY="580.0" mnemonicParsing="false" onAction="#moveSongUp" text="▲" />
       <Button fx:id="btnDeleteSongFromPlaylist" layoutX="365.0" layoutY="580.0" mnemonicParsing="false" onAction="#deleteSongFromPlaylist" text="Delete" />
-      <Button fx:id="btnNewSong" layoutX="475.0" layoutY="580.0" mnemonicParsing="false" onAction="#openNewSongWindow" text="New..." />
+      <Button fx:id="btnNewSong" layoutX="466.0" layoutY="580.0" mnemonicParsing="false" onAction="#openNewSongWindow" text="New..." />
       <Button fx:id="btnEditSongs" layoutX="539.0" layoutY="580.0" mnemonicParsing="false" onAction="#editSong" text="Edit..." />
+
       <Button fx:id="btnDeleteSong" layoutX="598.0" layoutY="580.0" mnemonicParsing="false" onAction="#deleteSong" text="Delete" />
       <Button fx:id="btnAppClose" layoutX="714.0" layoutY="580.0" mnemonicParsing="false" onAction="#closeWindow" text="Close" />
       <Label layoutX="26.0" layoutY="150.0" text="Playlist">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="256.0" layoutY="150.0" text="Songs onPlaylist">
+      <Label layoutX="256.0" layoutY="150.0" prefHeight="30.0" prefWidth="175.0" text="Songs on Playlist">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
       <Label layoutX="468.0" layoutY="150.0" text="Songs">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
       <Button layoutX="725.0" layoutY="39.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="43.0" text="🔎">
@@ -63,13 +64,15 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
-      <Button fx:id="btnAddSong" layoutX="432.0" layoutY="198.0" mnemonicParsing="false" onAction="#addSongToPlaylist" text="◄">
+      <Button fx:id="btnAddSong" layoutX="431.0" layoutY="188.0" mnemonicParsing="false" onAction="#addSongToPlaylist" rotate="90.0" text="▼">
+
          <font>
             <Font size="14.0" />
          </font>
       </Button>
       <TextField layoutX="554.0" layoutY="43.0" />
-      <Label layoutX="512.0" layoutY="44.0" text="Filter:">
+      <Label layoutX="501.0" layoutY="44.0" text="Filter:">
+
          <font>
             <Font size="18.0" />
          </font>
