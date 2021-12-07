@@ -69,17 +69,10 @@ public class Controller {
         stage.show();
     }
 
-    public void openNewPlaylistWindow(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("GUI/Views/playlist.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.setTitle("New/Edit Playlist");
-        stage.centerOnScreen();
-        stage.show();
+    public void openNewPlaylistWindow(ActionEvent actionEvent) {
+        System.out.println("works too");
     }
+
 
 
     public void deletePlaylist(ActionEvent actionEvent) {
