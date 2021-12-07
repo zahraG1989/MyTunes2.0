@@ -1,9 +1,14 @@
 package GUI.Controllers;
 
+import BE.Playlist;
+import GUI.Model.ListModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -15,16 +20,24 @@ import javafx.stage.Stage;
 import java.io.File;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
     public Button btnDeleteSongFromPlaylist;
     public Button btnNewSong;
     public Button btnAddSong;
     public Button btnEditSongs;
+
     public TableColumn songTitle;
     public TableColumn artist;
     public TableColumn category;
     public TableColumn timeOfSong;
+
+    @FXML
+    private ListView<Playlist> listSongsOnPlaylist;
 
     public Button btnDeleteSong;
     @FXML
@@ -41,6 +54,9 @@ public class Controller {
     private Button btnMoveSongUp;
     @FXML
     private Label welcomeText;
+
+    private ListModel listModel;
+
 
     @FXML
     protected void onHelloButtonClick() {
@@ -132,5 +148,14 @@ public class Controller {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
 
+    }
+
+    public Controller(){
+        listModel = new ListModel();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        listSongsOnPlaylist.getItems().setAll(listModel.getList());
     }
 }
