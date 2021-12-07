@@ -3,16 +3,16 @@ package GUI.Controllers;
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 import java.io.IOException;
 
@@ -21,8 +21,12 @@ public class Controller {
     public Button btnNewSong;
     public Button btnAddSong;
     public Button btnEditSongs;
-    @FXML
-    private Button btnDeleteSong;
+    public TableColumn songTitle;
+    public TableColumn artist;
+    public TableColumn category;
+    public TableColumn timeOfSong;
+
+    public Button btnDeleteSong;
     @FXML
     private Button btnAppClose;
     @FXML
@@ -47,6 +51,7 @@ public class Controller {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Close the Application ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
 
+
         if (alert.getResult() == ButtonType.YES) {
 
             Stage stage = (Stage) btnAppClose.getScene().getWindow();
@@ -54,8 +59,6 @@ public class Controller {
         }
 
     }
-    @FXML
-
     public void openNewSongWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/songTable.fxml"));
@@ -77,7 +80,6 @@ public class Controller {
         stage.centerOnScreen();
         stage.show();
     }
-
 
 
     public void deletePlaylist(ActionEvent actionEvent) {
@@ -123,5 +125,12 @@ public class Controller {
         }
     }
 
+    public void PlayMusic(ActionEvent actionEvent) {
+        File file = new File("C:/Users/zkooh/IdeaProjects/MyTunes2.0/myTunes'songs/MyTunes/01 - Easy.mp3");
+        System.out.println("file:" + file.toURI().toString());
+        Media media = new Media(file.toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
 
+    }
 }

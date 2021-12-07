@@ -20,7 +20,7 @@ import java.util.Properties;
  * @author jeppjleemoritzled
  */
 public class ConnectionManager {
-    private static final String CONFIG_FILE_NAME = "CompanyDB.cfg";
+    private static final String CONFIG_FILE_NAME = "MyTunes.cfg";
     private final SQLServerDataSource ds;
 
     public ConnectionManager() throws IOException
