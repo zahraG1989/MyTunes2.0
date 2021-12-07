@@ -3,7 +3,6 @@ package GUI.Controllers;
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +13,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.File;
+
 import java.io.IOException;
 
 public class Controller {
@@ -21,7 +21,12 @@ public class Controller {
     public Button btnNewSong;
     public Button btnAddSong;
     public Button btnEditSongs;
-    public Button btnPlay;
+
+    public TableColumn songTitle;
+    public TableColumn artist;
+    public TableColumn category;
+    public TableColumn timeOfSong;
+
     @FXML
     private Button btnDeleteSong;
     @FXML
@@ -47,7 +52,7 @@ public class Controller {
     public void closeWindow(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Close the Application ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
-        //comments
+
 
         if (alert.getResult() == ButtonType.YES) {
 
@@ -77,6 +82,7 @@ public class Controller {
         stage.centerOnScreen();
         stage.show();
     }
+
 
     public void deletePlaylist(ActionEvent actionEvent) {
         System.out.println("works too");

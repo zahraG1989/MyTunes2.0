@@ -16,9 +16,8 @@ public class SongDAO {
     public Song createSong(Song song) throws Exception {
         Song songCreated=null;
         try(Connection con = cm.getConnection()){
-            String sqlSelectSong = "INSERT INTO SONGS VALUES(?,?)";
+            String sqlSelectSong = "INSERT INTO SONGS VALUES(?,?,?,?)";
             PreparedStatement pststmtSelectSong = con.prepareStatement(sqlSelectSong, Statement.RETURN_GENERATED_KEYS);
-
             ResultSet rs = pststmtSelectSong.executeQuery();
             while(rs.next()){
                 songCreated = new Song(rs.getInt("id"),
@@ -39,6 +38,8 @@ public class SongDAO {
                 idSong = rs.getInt(1);
 
             }
+           // songCreated = new Song(idSong ,song.getName(),song.getCategory(),song.getSongFile(),song.getArtist());
+
         }
         return songCreated;
         }
@@ -60,3 +61,4 @@ public class SongDAO {
         return null;
     }
 }
+
