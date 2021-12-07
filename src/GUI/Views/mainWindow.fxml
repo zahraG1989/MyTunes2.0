@@ -40,7 +40,11 @@
       <Button fx:id="btnMoveSongUp" layoutX="260.0" layoutY="580.0" mnemonicParsing="false" onAction="#moveSongUp" text="▲" />
       <Button fx:id="btnDeleteSongFromPlaylist" layoutX="365.0" layoutY="580.0" mnemonicParsing="false" onAction="#deleteSongFromPlaylist" text="Delete" />
       <Button fx:id="btnNewSong" layoutX="466.0" layoutY="580.0" mnemonicParsing="false" onAction="#openNewSongWindow" text="New..." />
+<<<<<<< Updated upstream
       <Button fx:id="btnEditSongs" layoutX="539.0" layoutY="580.0" mnemonicParsing="false" onAction="#editSong" text="Edit..." />
+=======
+      <Button fx:id="btnEditSongs" layoutX="533.0" layoutY="580.0" mnemonicParsing="false" onAction="#editSong" text="Edit..." />
+>>>>>>> Stashed changes
       <Button fx:id="btnDeleteSong" layoutX="598.0" layoutY="580.0" mnemonicParsing="false" onAction="#deleteSong" text="Delete" />
       <Button fx:id="btnAppClose" layoutX="714.0" layoutY="580.0" mnemonicParsing="false" onAction="#closeWindow" text="Close" />
       <Label layoutX="26.0" layoutY="150.0" text="Playlist">
@@ -63,13 +67,21 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
+<<<<<<< Updated upstream
       <Button fx:id="btnAddSong" layoutX="431.0" layoutY="188.0" mnemonicParsing="false" onAction="#addSongToPlaylist" rotate="90.0" text="▼">
+=======
+      <Button fx:id="btnAddSong" layoutX="428.0" layoutY="186.0" mnemonicParsing="false" onAction="#addSongToPlaylist" rotate="90.0" text="▼">
+>>>>>>> Stashed changes
          <font>
             <Font size="14.0" />
          </font>
       </Button>
       <TextField layoutX="554.0" layoutY="43.0" />
+<<<<<<< Updated upstream
       <Label layoutX="501.0" layoutY="44.0" text="Filter:">
+=======
+      <Label layoutX="501.0" layoutY="43.0" text="Filter:">
+>>>>>>> Stashed changes
          <font>
             <Font size="18.0" />
          </font>
