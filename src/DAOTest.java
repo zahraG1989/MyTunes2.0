@@ -33,11 +33,12 @@ public class DAOTest {
         songList.add(song8);
         for (Song mySong: songList) {
             System.out.println("song name: "+mySong.getName()+" Artist: "+mySong.getArtist());
-           // songDAO.createSong(mySong);
+            // songDAO.createSong(mySong);
         }
 
     }
     public static void getAllSongs() {
+
 
     }
 }
