@@ -24,10 +24,10 @@
       <ListView layoutX="259.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" style="-fx-background-color: #FFDCFD;" />
       <TableView layoutX="466.0" layoutY="187.0" prefHeight="380.0" prefWidth="302.0" style="-fx-background-color: #FFDCFD;">
         <columns>
-          <TableColumn prefWidth="75.0" text="Title" />
-          <TableColumn prefWidth="72.0" text="Artist" />
-            <TableColumn prefWidth="78.0" text="Category" />
-            <TableColumn prefWidth="75.0" text="Category" />
+          <TableColumn fx:id="songTitle" prefWidth="75.0" text="Title" />
+          <TableColumn fx:id="artist" prefWidth="72.0" text="Artist" />
+            <TableColumn fx:id="category" prefWidth="78.0" text="Category" />
+            <TableColumn fx:id="timeOfSong" prefWidth="75.0" text="Time" />
         </columns>
       </TableView>
       <Slider layoutX="61.0" layoutY="84.0" prefHeight="16.0" prefWidth="123.0" />

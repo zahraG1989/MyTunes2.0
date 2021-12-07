@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -21,6 +18,12 @@ public class Controller {
     public Button btnNewSong;
     public Button btnAddSong;
     public Button btnEditSongs;
+
+    public TableColumn songTitle;
+    public TableColumn artist;
+    public TableColumn category;
+    public TableColumn timeOfSong;
+
     @FXML
     private Button btnDeleteSong;
     @FXML
