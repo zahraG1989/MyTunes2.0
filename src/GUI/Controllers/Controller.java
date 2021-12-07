@@ -43,7 +43,6 @@ public class Controller {
     public void closeWindow(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Close the Application ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
-        //comments
 
         if (alert.getResult() == ButtonType.YES) {
 
@@ -52,8 +51,16 @@ public class Controller {
         }
 
     }
-    public void openNewSongWindow(ActionEvent actionEvent) {
-        System.out.println("Works");
+    @FXML
+
+    public void openNewSongWindow(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/songTable.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("New Song");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void openNewPlaylistWindow(ActionEvent actionEvent) {
@@ -103,6 +110,7 @@ public class Controller {
         }
     }
 
+
     public void PlayMusic(ActionEvent actionEvent) {
         File file = new File("C:/Users/zkooh/IdeaProjects/MyTunes2.0/myTunes'songs/MyTunes/(Disc 2) 03 - Sunshine.mp3");
         System.out.println("file:" + file.toURI().toString());
@@ -111,4 +119,5 @@ public class Controller {
         mediaPlayer.play();
 
     }
+
 }
