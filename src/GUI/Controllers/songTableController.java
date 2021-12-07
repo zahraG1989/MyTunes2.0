@@ -8,20 +8,26 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class songTableController {
-    public Button btnChooseFile;
+    @FXML
+    private Button btnChooseFile;
+    @FXML
+    private ComboBox boxChooseCategory;
     @FXML
     private Button btnCancelAddingSong;
-    public Button btnSaveNewSong;
+    @FXML
+    private Button btnSaveNewSong;
 
     public void chooseFile(ActionEvent actionEvent) {
     }
 
-    public void cancelAddingSong(ActionEvent actionEvent) {
+    @FXML
+    private void cancelAddingSong(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
         //comments
@@ -34,7 +40,12 @@ public class songTableController {
         
     }
 
-    public void saveNewSong(ActionEvent actionEvent) {
+    @FXML
+    private void saveNewSong(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    private void chooseCategory(ActionEvent actionEvent) {
     }
 }
 
