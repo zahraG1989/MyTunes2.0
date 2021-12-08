@@ -20,8 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    @FXML
-    private Button btnDeleteSongFromPlaylist;
+    public Button btnDeleteSongFromPlaylist;
     @FXML
     private  Button btnNewSong;
     @FXML
