@@ -16,7 +16,7 @@ public class MyTunesDAO {
     public MyTunesDAO() throws IOException {
         cm = new ConnectionManager();
     }
-    public void getALlSOngs(){
+    public void getALlSongs(){
         try (Connection con = cm.getConnection()) {
             List<Song> allSongs = new ArrayList<>();
             String sqlcommandSelect = "SELECT * FROM Songs;";

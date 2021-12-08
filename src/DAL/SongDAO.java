@@ -16,29 +16,25 @@ public class SongDAO {
     public Song createSong(Song song) throws Exception {
         Song songCreated=null;
         try(Connection con = cm.getConnection()){
-            String sqlSelectSong = "INSERT INTO SONGS VALUES(?,?)";
-            PreparedStatement pststmtSelectSong = con.prepareStatement(sqlSelectSong, Statement.RETURN_GENERATED_KEYS);
+            String sqlSelectSong = "INSERT INTO SONGS VALUES(?,?,?,?)";
+            PreparedStatement pststmtInsertSong = con.prepareStatement(sqlSelectSong, Statement.RETURN_GENERATED_KEYS);
 
-            ResultSet rs = pststmtSelectSong.executeQuery();
+
+            pststmtInsertSong.setString(1,song.getName());
+            pststmtInsertSong.setString(2,song.getCategory());
+            pststmtInsertSong.setString(3,song.getSongFile());
+            pststmtInsertSong.setString(4,song.getArtist());
+            pststmtInsertSong.execute();
+            ResultSet rs = pststmtInsertSong.getGeneratedKeys();
             while(rs.next()){
-                songCreated = new Song(rs.getInt("id"),
-                        rs.getString("Sname"),
-                        rs.getString("Categori"),
-                        rs.getString("songFile"),
-                        rs.getString("artist")
+                songCreated = new Song(rs.getInt(1),
+                        song.getName(),
+                        song.getCategory(),
+                        song.getSongFile(),
+                        song.getArtist()
                 );
 
-                pststmtSelectSong.setString(1,song.getName());
-                pststmtSelectSong.setString(2,song.getCategory());
-                pststmtSelectSong.setString(3,song.getSongFile());
-                pststmtSelectSong.setString(4,song.getArtist());
-                pststmtSelectSong.execute();
 
-                int idSong=0;
-                while(rs.next()) {
-                    idSong = rs.getInt(1);
-
-                }
             }
             return songCreated;
         }
@@ -46,17 +42,23 @@ public class SongDAO {
     public List<Song> getAllSongs () throws SQLException {
         List<Song> songList = new ArrayList<>();
         try(Connection con= cm.getConnection()) {
-            String sqlSelectSong= "SELECT * FROM SONGS";
-            PreparedStatement pststmtmtselectSong = con.prepareStatement(sqlSelectSong,Statement.RETURN_GENERATED_KEYS);
-            pststmtmtselectSong.execute();
-            ResultSet rs = pststmtmtselectSong.getGeneratedKeys();
-            int idSong=0;
+            String sqlSelectSong= "SELECT * FROM SONGS;";
+            PreparedStatement pststmtmtselectSong = con.prepareStatement(sqlSelectSong);
+
+            ResultSet rs = pststmtmtselectSong.executeQuery();
+
             while (rs.next()){
-                idSong = rs.getInt(1);
+                        Song song = new Song(rs.getInt("id"),
+                        rs.getString("Sname"),
+                        rs.getString("Categori"),
+                        rs.getString("songFile"),
+                        rs.getString("artist"));
+
+                        songList.add(song);
             }
 
         }
 
-        return null;
+        return songList;
     }
 }
