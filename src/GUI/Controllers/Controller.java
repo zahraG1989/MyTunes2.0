@@ -170,10 +170,12 @@ public class Controller implements Initializable {
 
     public Controller(){
         playlistModel = new playlistModel();
+        listSongsOnPlaylist = new ListView<>();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        listSongsOnPlaylist.getItems().setAll(playlistModel.getList());
+        System.out.println(playlistModel.getList().size());
+        listSongsOnPlaylist.setItems(playlistModel.getList());
     }
 }

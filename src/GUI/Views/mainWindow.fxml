@@ -21,7 +21,7 @@
             <TableColumn prefWidth="75.0" text="Time" />
         </columns>
       </TableView>
-      <ListView layoutX="259.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" style="-fx-background-color: #FFDCFD;" />
+      <ListView fx:id="listSongsOnPlaylist" layoutX="259.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" style="-fx-background-color: #FFDCFD;" />
       <TableView layoutX="466.0" layoutY="187.0" prefHeight="380.0" prefWidth="302.0" style="-fx-background-color: #FFDCFD;">
         <columns>
           <TableColumn fx:id="songTitle" prefWidth="75.0" text="Title" />
