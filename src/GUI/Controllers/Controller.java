@@ -157,14 +157,14 @@ public class Controller implements Initializable {
 
     @FXML
     private void playMusic(ActionEvent actionEvent) {
-        File file = new File("C:/Users/zkooh/IdeaProjects/MyTunes2.0/myTunes'songs/MyTunes/01 - Easy.mp3");
+        File file = new File("C:/Users/zkooh/OneDrive/Área de Trabalho/myTunes'songs/MyTunes/01 - Easy.mp3");
         System.out.println("file:" + file.toURI().toString());
         Media media = new Media(file.toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
 
 
-       // btnPlayMusic.setText("||");
+        //btnPlayMusic.setText("||");
 
     }
 
