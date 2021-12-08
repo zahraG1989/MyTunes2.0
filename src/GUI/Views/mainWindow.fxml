@@ -78,11 +78,11 @@
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Button>
-      <Button layoutX="14.0" layoutY="33.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="&lt;&lt;">
+      <Button fx:id="previousSongButton" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" onAction="#playPreviousSong" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="&lt;&lt;">
          <font>
             <Font name="System Bold" size="17.0" />
          </font></Button>
-      <Button layoutX="133.0" layoutY="33.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="&gt;&gt;">
+      <Button fx:id="nextSongButton" layoutX="133.0" layoutY="33.0" mnemonicParsing="false" onAction="#playNextSong" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="&gt;&gt;">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller implements Initializable, ControllerInterface {
     public Button btnDeleteSongFromPlaylist;
     @FXML
     private  Button btnNewSong;
@@ -57,6 +57,12 @@ public class Controller implements Initializable {
     private Button btnMoveSongUp;
     @FXML
     private Label welcomeText;
+
+    @FXML
+    private Button nextSongButton;
+
+    @FXML
+    private Button previousSongButton;
 
     private playlistModel playlistModel;
 
@@ -157,16 +163,34 @@ public class Controller implements Initializable {
 
     @FXML
     private void playMusic(ActionEvent actionEvent) {
-        File file = new File("C:/Users/zkooh/OneDrive/Área de Trabalho/myTunes'songs/MyTunes/01 - Easy.mp3");
+        File file = new File("C:\\Users\\steff\\OneDrive\\Dokumente\\GitHub\\MyTunes2.0\\src\\Music files\\01 - Margarethe (Original Mix).mp3");
         System.out.println("file:" + file.toURI().toString());
         Media media = new Media(file.toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
+    }
 
+    @FXML
+    private void playNextSong (ActionEvent actionEvent) {
+        File file = new File("C:\\Users\\steff\\OneDrive\\Dokumente\\GitHub\\MyTunes2.0\\src\\Music files\\01 - Heut' Abend hab' ich Kopfweh.mp3");
+        System.out.println("file:" + file.toURI().toString());
+        Media media = new Media(file.toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+    }
+
+        @FXML
+        private void playPreviousSong (ActionEvent actionEvent) {
+            File file = new File("C:\\Users\\steff\\OneDrive\\Dokumente\\GitHub\\MyTunes2.0\\src\\Music files\\01 - Ich fang dir den Mond (Single Version).mp3");
+            System.out.println("file:" + file.toURI().toString());
+            Media media = new Media(file.toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.play();
+        }
 
         //btnPlayMusic.setText("||");
 
-    }
+
 
     public Controller(){
         playlistModel = new playlistModel();
