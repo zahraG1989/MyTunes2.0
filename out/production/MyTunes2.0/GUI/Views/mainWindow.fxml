@@ -21,7 +21,7 @@
             <TableColumn prefWidth="75.0" text="Time" />
         </columns>
       </TableView>
-      <ListView layoutX="259.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" style="-fx-background-color: #FFDCFD;" />
+      <ListView fx:id="listSongsOnPlaylist" layoutX="259.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" style="-fx-background-color: #FFDCFD;" />
       <TableView layoutX="466.0" layoutY="187.0" prefHeight="380.0" prefWidth="302.0" style="-fx-background-color: #FFDCFD;">
         <columns>
           <TableColumn fx:id="songTitle" prefWidth="75.0" text="Title" />
@@ -74,9 +74,19 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="65.0" layoutY="13.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="64.0" style="-fx-background-radius: 100;" text="Button" />
-      <Button layoutX="135.0" layoutY="32.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="Button" />
-      <Button layoutX="14.0" layoutY="33.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="Button" />
+      <Button layoutX="65.0" layoutY="13.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="64.0" rotate="90.0" style="-fx-background-radius: 100;" text="▲">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></Button>
+      <Button layoutX="14.0" layoutY="33.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="&lt;&lt;">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Button>
+      <Button layoutX="133.0" layoutY="33.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="49.0" style="-fx-background-radius: 100;" text="&gt;&gt;">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
    </children>
    <effect>
       <Blend />
