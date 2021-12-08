@@ -10,6 +10,9 @@ public class DAOTest {
     public static void main(String[] args) throws Exception {
         //createSong();
        // getAllSongs();
+        //updateSong();
+        //deleteSongs();
+
     }
     public static void createSong() throws Exception {
         SongDAO songDAO = new SongDAO();
@@ -45,5 +48,15 @@ public class DAOTest {
         for (Song song: songList) {
             System.out.println("Song name: "+song.getName()+" Artist: "+song.getArtist()+" category: "+song.getCategory());
         }
+    }
+    public static void updateSong() throws IOException, SQLException {
+        SongDAO songDAO = new SongDAO();
+        Song song = new Song(32,"Kiss Kiss Kiss","Pop","c:////","Tarzan");
+        songDAO.updateSong(song);
+    }
+    public static void deleteSongs() throws SQLException, IOException {
+        SongDAO songDAO= new SongDAO();
+        Song song = new Song(32,"Kiss Kiss Kiss","Pop","c:////","Tarzan");
+        songDAO.deleteSong(song);
     }
 }

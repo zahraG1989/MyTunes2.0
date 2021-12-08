@@ -58,10 +58,28 @@ public class SongDAO {
 
         return songList;
     }
-    public void updateSong(Song song) {
-
+    public void updateSong(Song song) throws SQLException {
+    try(Connection con= cm.getConnection()){
+        String sqlUpdateSong= "UPDATE Songs SET Sname=?, Categori=?, songFile=?,artist=? WHERE ID=?;";
+        PreparedStatement pststmtUpdateSong= con.prepareStatement(sqlUpdateSong,Statement.RETURN_GENERATED_KEYS);
+        pststmtUpdateSong.setString(1,song.getName());
+        pststmtUpdateSong.setString(2,song.getCategory());
+        pststmtUpdateSong.setString(3,song.getSongFile());
+        pststmtUpdateSong.setString(4,song.getArtist());
+        pststmtUpdateSong.setInt(5,song.getId());
+        pststmtUpdateSong.executeUpdate();
+        ResultSet rs = pststmtUpdateSong.getGeneratedKeys();
     }
-    public void deleteSong(Song song){
+    }
+    public void deleteSong(Song song) throws SQLException {
+        try(Connection con = cm.getConnection()){
+            String sqlDeleteSong= "DELETE FROM Songs WHERE ID=?;";
+            PreparedStatement pststmtDeleteSong= con.prepareStatement(sqlDeleteSong,Statement.RETURN_GENERATED_KEYS);
+            pststmtDeleteSong.setInt(1,song.getId());
+            pststmtDeleteSong.execute();
+          //  ResultSet rs = pststmtDeleteSong.getGeneratedKeys();
+        }
+
 
     }
 
