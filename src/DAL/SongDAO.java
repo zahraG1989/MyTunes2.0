@@ -19,7 +19,6 @@ public class SongDAO {
             String sqlSelectSong = "INSERT INTO SONGS VALUES(?,?,?,?)";
             PreparedStatement pststmtInsertSong = con.prepareStatement(sqlSelectSong, Statement.RETURN_GENERATED_KEYS);
 
-
             pststmtInsertSong.setString(1,song.getName());
             pststmtInsertSong.setString(2,song.getCategory());
             pststmtInsertSong.setString(3,song.getSongFile());
@@ -33,8 +32,6 @@ public class SongDAO {
                         song.getSongFile(),
                         song.getArtist()
                 );
-
-
             }
             return songCreated;
         }
@@ -61,4 +58,11 @@ public class SongDAO {
 
         return songList;
     }
+    public void updateSong(Song song) {
+
+    }
+    public void deleteSong(Song song){
+
+    }
+
 }

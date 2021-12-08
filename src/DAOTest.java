@@ -9,7 +9,7 @@ import java.util.List;
 public class DAOTest {
     public static void main(String[] args) throws Exception {
         //createSong();
-        getAllSongs();
+       // getAllSongs();
     }
     public static void createSong() throws Exception {
         SongDAO songDAO = new SongDAO();
