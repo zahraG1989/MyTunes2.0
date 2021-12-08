@@ -26,7 +26,7 @@ public class DAOTest {
         Song song5 = new Song(1,"Big bamboo","Epic","C:/Users/zkooh/IdeaProjects/MyTunes2.07myTunes'songs/MyTunes/07 - Big bamboo.mp3","Zahra");
         Song song6 = new Song(1,"Spur 8","Classic","C:/Users/zkooh/IdeaProjects/MyTunes2.07myTunes'songs/MyTunes/08 Spur 8.mp3","Zahra");
         Song song7 = new Song(1,"Walk","Jazz","C:/Users/zkooh/IdeaProjects/MyTunes2.07myTunes'songs/MyTunes/11 Walk.mp3","Zahra");*/
-        Song song8 = new Song(1,"Kiss kiss","Pop","C:/Users/zkooh/IdeaProjects/MyTunes2.07myTunes'songs/MyTunes/Nachtbaden.mp3","Tarkan");
+        //Song song8 = new Song(1,"Kiss kiss","Pop","C:/Users/zkooh/IdeaProjects/MyTunes2.07myTunes'songs/MyTunes/Nachtbaden.mp3","Tarkan");
        /* songList.add(song);
         songList.add(song1);
         songList.add(song2);
@@ -35,7 +35,15 @@ public class DAOTest {
         songList.add(song5);
         songList.add(song6);
         songList.add(song7);*/
-        songList.add(song8);
+        //songList.add(song8);
+
+        Song song1 = new Song(1,"Easy","HipHop","src/musicFiles/videoplayback.mp3","Zahra");
+        Song song2 = new Song(1,"1000 Träume Weit (Tornero)","Rock","src/musicFiles/videoplayback.mp3","Zahra");
+        Song song3 = new Song(1,"Hi Kids","Latin","src/musicFiles/videoplayback.mp3","Zahra");
+        songList.add(song1);
+        songList.add(song2);
+        songList.add(song3);
+
         for (Song mySong: songList) {
             System.out.println("song name: "+mySong.getName()+" Artist: "+mySong.getArtist());
              songDAO.createSong(mySong);

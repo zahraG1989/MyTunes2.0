@@ -163,9 +163,6 @@ public class Controller implements Initializable {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
 
-
-        //btnPlayMusic.setText("||");
-
     }
 
     public Controller(){

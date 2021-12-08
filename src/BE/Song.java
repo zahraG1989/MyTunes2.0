@@ -10,11 +10,9 @@ public class Song {
 
     public Song(int id, String name,String category,String songFile,String artist) {
         this.id = id;
-        this.artist = artist;
         this.category = category;
         this.name = name;
         this.songFile = songFile;
-
         this.artist = artist;
     }
 
