@@ -57,9 +57,9 @@ public class DAOTest {
 
     }
     public static void getAllSongs() throws IOException, SQLException {
-        SongDAO songDAO = new SongDAO();
-        List<Song> songList = songDAO.getAllSongs();
-        for (Song song: songList) {
+        SongDAO myAccessToSongDatabase = new SongDAO();
+        List<Song> lıstOfAllSongs = myAccessToSongDatabase.getAllSongs();
+        for (Song song: lıstOfAllSongs) {
             System.out.println("Song name: "+song.getName()+" Artist: "+song.getArtist()+" category: "+song.getCategory());
         }
     }
