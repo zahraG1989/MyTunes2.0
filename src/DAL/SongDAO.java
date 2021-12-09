@@ -41,9 +41,11 @@ public class SongDAO {
         Song song1 = new Song(1,"Easy","HipHop","src/musicFiles/videoplayback.mp3","Zahra");
         Song song2 = new Song(1,"1000 Träume Weit (Tornero)","Rock","src/musicFiles/videoplayback.mp3","Zahra");
         Song song3 = new Song(1,"Hi Kids","Latin","src/musicFiles/videoplayback.mp3","Zahra");
+        Song song4 = new Song(1,"Heat Waves","Pop","src/musicFiles/","Tunay");
         songList.add(song1);
         songList.add(song2);
-        songList.add(song3);*/
+        songList.add(song3);
+        songList.add(song4);*/
 
         List<Song> songList = new ArrayList<>();
         try(Connection con= cm.getConnection()) {
