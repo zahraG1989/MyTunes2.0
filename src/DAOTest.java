@@ -1,4 +1,6 @@
+import BE.Playlist;
 import BE.Song;
+import DAL.PlayListDAO;
 import DAL.SongDAO;
 
 import java.io.IOException;
@@ -12,6 +14,8 @@ public class DAOTest {
        // getAllSongs();
         //updateSong();
         //deleteSongs();
+        //createPlayList();
+        getAllPlaylists();
 
     }
     public static void createSong() throws Exception {
@@ -37,9 +41,11 @@ public class DAOTest {
         songList.add(song7);*/
         //songList.add(song8);
 
-        Song song1 = new Song(1,"Easy","HipHop","src/musicFiles/videoplayback.mp3","Zahra");
-        Song song2 = new Song(1,"1000 Träume Weit (Tornero)","Rock","src/musicFiles/videoplayback.mp3","Zahra");
-        Song song3 = new Song(1,"Hi Kids","Latin","src/musicFiles/videoplayback.mp3","Zahra");
+
+        Song song1 = new Song(1,"Easy","HipHop","src/musicFiles/videoplayback","Zahra");
+        Song song2 = new Song(1,"1000 Träume Weit (Tornero)","Rock","src/musicFiles/videoplayback","Zahra");
+        Song song3 = new Song(1,"Hi Kids","Latin","src/musicFiles/videoplayback","Zahra");
+
         songList.add(song1);
         songList.add(song2);
         songList.add(song3);
@@ -66,5 +72,32 @@ public class DAOTest {
         SongDAO songDAO= new SongDAO();
         Song song = new Song(32,"Kiss Kiss Kiss","Pop","c:////","Tarzan");
         songDAO.deleteSong(song);
+    }
+    public static void createPlayList() throws SQLException {
+        List<Playlist> listOfPlaylist = new ArrayList<>();
+        PlayListDAO playListDAO = new PlayListDAO();
+        Playlist playlist1 = new Playlist(1,"MyFirstPlaylist");
+        Playlist playlist2 = new Playlist(1,"MySecondPlaylist");
+        Playlist playlist3 = new Playlist(1,"MyThirdPlaylist");
+        Playlist playlist4 = new Playlist(1,"MyFourthPlaylist");
+        Playlist playlist5 = new Playlist(1,"MyFifthPlaylist");
+        listOfPlaylist.add(playlist1);
+        listOfPlaylist.add(playlist2);
+        listOfPlaylist.add(playlist3);
+        listOfPlaylist.add(playlist4);
+        listOfPlaylist.add(playlist5);
+
+        for (Playlist p: listOfPlaylist) {
+            playListDAO.createPlayList(p);
+            System.out.println("PlayList:" +p.getName()+" created.");
+        }
+    }
+    public static void getAllPlaylists() throws SQLException {
+        PlayListDAO playListDAO = new PlayListDAO();
+        List<Playlist> listOfPlaylist = playListDAO.getAllPlayList();
+        for (Playlist p: listOfPlaylist) {
+            playListDAO.createPlayList(p);
+            System.out.println("PlayList:" +p.getName());
+        }
     }
 }

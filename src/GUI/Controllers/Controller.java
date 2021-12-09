@@ -163,7 +163,7 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void playMusic(ActionEvent actionEvent) {
-        File file = new File("C:\\Users\\steff\\OneDrive\\Dokumente\\GitHub\\MyTunes2.0\\src\\Music files\\01 - Margarethe (Original Mix).mp3");
+        File file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
         System.out.println("file:" + file.toURI().toString());
         Media media = new Media(file.toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -172,7 +172,7 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void playNextSong (ActionEvent actionEvent) {
-        File file = new File("C:\\Users\\steff\\OneDrive\\Dokumente\\GitHub\\MyTunes2.0\\src\\Music files\\01 - Heut' Abend hab' ich Kopfweh.mp3");
+        File file = new File("C:/Users/tunay/Desktop/Songs/Glass Animals - Heat Waves (Lyrics).mp3");
         System.out.println("file:" + file.toURI().toString());
         Media media = new Media(file.toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -181,7 +181,7 @@ public class Controller implements Initializable, ControllerInterface {
 
         @FXML
         private void playPreviousSong (ActionEvent actionEvent) {
-            File file = new File("C:\\Users\\steff\\OneDrive\\Dokumente\\GitHub\\MyTunes2.0\\src\\Music files\\01 - Ich fang dir den Mond (Single Version).mp3");
+            File file = new File("C:/Users/tunay/Desktop/Songs/Kiss Kiss (Tarkan).mp3");
             System.out.println("file:" + file.toURI().toString());
             Media media = new Media(file.toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(media);
