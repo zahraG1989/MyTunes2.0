@@ -41,9 +41,9 @@ public class DAOTest {
         songList.add(song7);*/
         //songList.add(song8);
 
-        Song song1 = new Song(1,"Easy","HipHop","src/musicFiles/videoplayback.mp3","Zahra");
-        Song song2 = new Song(1,"1000 Träume Weit (Tornero)","Rock","src/musicFiles/videoplayback.mp3","Zahra");
-        Song song3 = new Song(1,"Hi Kids","Latin","src/musicFiles/videoplayback.mp3","Zahra");
+        Song song1 = new Song(1,"Easy","HipHop","src/musicFiles/videoplayback","Zahra");
+        Song song2 = new Song(1,"1000 Träume Weit (Tornero)","Rock","src/musicFiles/videoplayback","Zahra");
+        Song song3 = new Song(1,"Hi Kids","Latin","src/musicFiles/videoplayback","Zahra");
         songList.add(song1);
         songList.add(song2);
         songList.add(song3);
