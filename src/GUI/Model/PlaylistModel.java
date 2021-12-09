@@ -7,10 +7,10 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class playlistModel {
+public class PlaylistModel {
     List<Playlist> playlistOne = new ArrayList<>();
 
-    public playlistModel() {
+    public PlaylistModel() {
         Playlist Song1 = new Playlist (1,"Sunshine");
         Playlist Song2 = new Playlist(2,"Easy");
         Playlist Song3 = new Playlist(3,"Nachtbaden");

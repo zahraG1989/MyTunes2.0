@@ -62,12 +62,11 @@ public class SongDAO {
 
                         songList.add(song);
             }
-
         }
-
-
         return songList;
     }
+
+
     public void updateSong(Song song) throws SQLException {
     try(Connection con= cm.getConnection()){
         String sqlUpdateSong= "UPDATE Songs SET Sname=?, Categori=?, songFile=?,artist=? WHERE ID=?;";
