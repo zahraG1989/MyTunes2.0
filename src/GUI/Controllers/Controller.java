@@ -28,7 +28,7 @@ public class Controller implements Initializable, ControllerInterface {
     public Button btnDeleteSongFromPlaylist;
 
     @FXML
-    private TableView songTable;
+    private TableView<Song> songTable;
     @FXML
     private  Button btnNewSong;
     @FXML
@@ -65,13 +65,88 @@ public class Controller implements Initializable, ControllerInterface {
     private Button previousSongButton;
 
     private PlaylistModel playlistModel;
-
+    private SongModel songModel;
 
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to MyTunes Application!");
     }
 
+
+
+
+
+    public Controller() throws SQLException, IOException {
+        playlistModel = new PlaylistModel();
+        listSongsOnPlaylist = new ListView<>();
+        songModel = new SongModel();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println(playlistModel.getList().size());
+        listSongsOnPlaylist.setItems(playlistModel.getList());
+        setUpTable();
+//        try {
+//           // SongModel songModel = new SongModel();
+//            //songTable.setItems(songModel.getListSongs());
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+
+    }
+    @FXML
+    private void playMusic(ActionEvent actionEvent) {
+        File file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
+        System.out.println("file:" + file.toURI().toString());
+        System.out.println("TEST: "+songTable.getSelectionModel().getSelectedItem());
+        Media media = new Media(file.toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+    }
+
+    @FXML
+    private void playNextSong (ActionEvent actionEvent) {
+        File file = new File("C:/Users/tunay/Desktop/Songs/Glass Animals - Heat Waves (Lyrics).mp3");
+        System.out.println("file:" + file.toURI().toString());
+        Media media = new Media(file.toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+    }
+
+    @FXML
+    private void playPreviousSong (ActionEvent actionEvent) {
+        File file = new File("C:/Users/tunay/Desktop/Songs/Kiss Kiss (Tarkan).mp3");
+        System.out.println("file:" + file.toURI().toString());
+        Media media = new Media(file.toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+    }
+    public void setUpTable(){
+        // adds columns to tableView, PropertyValueFactory should correspond to properties in Song class
+        TableColumn<Song, String> column1 = new TableColumn<>("Title");
+        column1.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+
+        TableColumn<Song, String> column2 = new TableColumn<>("Artist");
+        column2.setCellValueFactory(new PropertyValueFactory<>("artist"));
+
+        TableColumn<Song, String> column3 = new TableColumn<>("Category");
+        column3.setCellValueFactory(new PropertyValueFactory<>("category"));
+
+        /*TableColumn<Song, String> column4 = new TableColumn<>("Time");
+        column4.setCellValueFactory(new PropertyValueFactory<>("time")); */
+
+
+        songTable.getColumns().add(column1);
+        songTable.getColumns().add(column2);
+        songTable.getColumns().add(column3);
+        songTable.getItems().addAll(songModel.getListSongs());
+
+    }
     @FXML
     private void closeWindow(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Close the Application ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
@@ -161,78 +236,8 @@ public class Controller implements Initializable, ControllerInterface {
         }
     }
 
-    @FXML
-    private void playMusic(ActionEvent actionEvent) {
-        File file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
-        System.out.println("file:" + file.toURI().toString());
-        Media media = new Media(file.toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
-    }
-
-    @FXML
-    private void playNextSong (ActionEvent actionEvent) {
-        File file = new File("C:/Users/tunay/Desktop/Songs/Glass Animals - Heat Waves (Lyrics).mp3");
-        System.out.println("file:" + file.toURI().toString());
-        Media media = new Media(file.toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
-    }
-
-        @FXML
-        private void playPreviousSong (ActionEvent actionEvent) {
-            File file = new File("C:/Users/tunay/Desktop/Songs/Kiss Kiss (Tarkan).mp3");
-            System.out.println("file:" + file.toURI().toString());
-            Media media = new Media(file.toURI().toString());
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.play();
-        }
-
-        //btnPlayMusic.setText("||");
 
 
+    //btnPlayMusic.setText("||");
 
-    public Controller(){
-        playlistModel = new PlaylistModel();
-        listSongsOnPlaylist = new ListView<>();
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        System.out.println(playlistModel.getList().size());
-        listSongsOnPlaylist.setItems(playlistModel.getList());
-        setUpTable();
-        try {
-            SongModel songModel = new SongModel();
-            songTable.setItems(songModel.getListSongs());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void setUpTable(){
-        // adds columns to tableView, PropertyValueFactory should correspond to properties in Song class
-        TableColumn<Song, String> column1 = new TableColumn<>("Title");
-        column1.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-
-        TableColumn<Song, String> column2 = new TableColumn<>("Artist");
-        column2.setCellValueFactory(new PropertyValueFactory<>("artist"));
-
-        TableColumn<Song, String> column3 = new TableColumn<>("Category");
-        column3.setCellValueFactory(new PropertyValueFactory<>("category"));
-
-        /*TableColumn<Song, String> column4 = new TableColumn<>("Time");
-        column4.setCellValueFactory(new PropertyValueFactory<>("time")); */
-
-
-        songTable.getColumns().add(column1);
-        songTable.getColumns().add(column2);
-        songTable.getColumns().add(column3);
-
-    }
 }
