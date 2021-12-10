@@ -1,7 +1,10 @@
 package GUI.Controllers;
 
 import BE.Playlist;
-import GUI.Model.playlistModel;
+import BE.Song;
+import GUI.Model.PlaylistModel;
+import GUI.Model.SongModel;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -17,10 +21,14 @@ import java.io.File;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable, ControllerInterface {
     public Button btnDeleteSongFromPlaylist;
+
+    @FXML
+    private TableView songTable;
     @FXML
     private  Button btnNewSong;
     @FXML
@@ -29,16 +37,8 @@ public class Controller implements Initializable, ControllerInterface {
     private  Button btnEditSongs;
 
     @FXML
-    private  TableColumn songTitle;
-    @FXML
-    private  TableColumn artist;
-    @FXML
-    private  TableColumn category;
-    @FXML
-    private  TableColumn timeOfSong;
-
-    @FXML
     private ListView<Playlist> listSongsOnPlaylist;
+
 
     public Button btnDeleteSong;
     @FXML
@@ -64,7 +64,7 @@ public class Controller implements Initializable, ControllerInterface {
     @FXML
     private Button previousSongButton;
 
-    private playlistModel playlistModel;
+    private PlaylistModel playlistModel;
 
 
     @FXML
@@ -193,7 +193,7 @@ public class Controller implements Initializable, ControllerInterface {
 
 
     public Controller(){
-        playlistModel = new playlistModel();
+        playlistModel = new PlaylistModel();
         listSongsOnPlaylist = new ListView<>();
     }
 
@@ -201,5 +201,38 @@ public class Controller implements Initializable, ControllerInterface {
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println(playlistModel.getList().size());
         listSongsOnPlaylist.setItems(playlistModel.getList());
+        setUpTable();
+        try {
+            SongModel songModel = new SongModel();
+            songTable.setItems(songModel.getListSongs());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void setUpTable(){
+        // adds columns to tableView, PropertyValueFactory should correspond to properties in Song class
+        TableColumn<Song, String> column1 = new TableColumn<>("Title");
+        column1.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+
+        TableColumn<Song, String> column2 = new TableColumn<>("Artist");
+        column2.setCellValueFactory(new PropertyValueFactory<>("artist"));
+
+        TableColumn<Song, String> column3 = new TableColumn<>("Category");
+        column3.setCellValueFactory(new PropertyValueFactory<>("category"));
+
+        /*TableColumn<Song, String> column4 = new TableColumn<>("Time");
+        column4.setCellValueFactory(new PropertyValueFactory<>("time")); */
+
+
+        songTable.getColumns().add(column1);
+        songTable.getColumns().add(column2);
+        songTable.getColumns().add(column3);
+
     }
 }

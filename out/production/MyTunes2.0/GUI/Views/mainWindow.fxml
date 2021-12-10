@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="782.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="915.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Controller">
    <children>
       <TableView layoutX="20.0" layoutY="187.0" prefHeight="380.0" prefWidth="226.0" style="-fx-background-color:  #FFDCFD;">
         <columns>
@@ -21,15 +21,7 @@
             <TableColumn prefWidth="75.0" text="Time" />
         </columns>
       </TableView>
-      <ListView fx:id="listSongsOnPlaylist" layoutX="259.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" style="-fx-background-color: #FFDCFD;" />
-      <TableView layoutX="466.0" layoutY="187.0" prefHeight="380.0" prefWidth="302.0" style="-fx-background-color: #FFDCFD;">
-        <columns>
-          <TableColumn fx:id="songTitle" prefWidth="75.0" text="Title" />
-          <TableColumn fx:id="artist" prefWidth="72.0" text="Artist" />
-            <TableColumn fx:id="category" prefWidth="78.0" text="Category" />
-            <TableColumn fx:id="timeOfSong" prefWidth="75.0" text="Time" />
-        </columns>
-      </TableView>
+      <ListView fx:id="listSongsOnPlaylist" layoutX="250.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" style="-fx-background-color: #FFDCFD;" />
       <Slider layoutX="61.0" layoutY="84.0" prefHeight="16.0" prefWidth="123.0" />
       <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="29.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
@@ -63,7 +55,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
-      <Button fx:id="btnAddSong" layoutX="431.0" layoutY="188.0" mnemonicParsing="false" onAction="#addSongToPlaylist" rotate="90.0" text="▼">
+      <Button fx:id="btnAddSong" layoutX="416.0" layoutY="189.0" mnemonicParsing="false" onAction="#addSongToPlaylist" rotate="90.0" text="▼">
          <font>
             <Font size="14.0" />
          </font>
@@ -87,6 +79,9 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
+      <TableView fx:id="songTable" layoutX="448.0" layoutY="187.0" prefHeight="380.0" prefWidth="463.0">
+
+      </TableView>
    </children>
    <effect>
       <Blend />

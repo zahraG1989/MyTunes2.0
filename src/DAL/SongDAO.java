@@ -44,8 +44,7 @@ public class SongDAO {
         Song song4 = new Song(1,"Heat Waves","Pop","src/musicFiles/","Tunay");
         songList.add(song1);
         songList.add(song2);
-        songList.add(song3);
-        songList.add(song4);*/
+        songList.add(song3);*/
 
         List<Song> songList = new ArrayList<>();
         try(Connection con= cm.getConnection()) {
@@ -63,12 +62,11 @@ public class SongDAO {
 
                         songList.add(song);
             }
-
         }
-
-
         return songList;
     }
+
+
     public void updateSong(Song song) throws SQLException {
     try(Connection con= cm.getConnection()){
         String sqlUpdateSong= "UPDATE Songs SET Sname=?, Categori=?, songFile=?,artist=? WHERE ID=?;";
