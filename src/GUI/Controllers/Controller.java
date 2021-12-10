@@ -100,9 +100,16 @@ public class Controller implements Initializable, ControllerInterface {
     }
     @FXML
     private void playMusic(ActionEvent actionEvent) {
-        File file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
-        System.out.println("file:" + file.toURI().toString());
-        System.out.println("TEST: "+songTable.getSelectionModel().getSelectedItem());
+        File file=null;
+        if(songTable.getSelectionModel().getSelectedItem()!=null) {
+            file = new File(songTable.getSelectionModel().getSelectedItem().getSongFile());
+        } else {
+            file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
+        }
+        //File file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
+       // System.out.println("file:" + file.toURI().toString());
+        System.out.println("TEST: "+file.toURI().toString());
+
         Media media = new Media(file.toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
