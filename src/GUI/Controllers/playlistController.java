@@ -3,7 +3,7 @@ package GUI.Controllers;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
-public class playlistController {
+public class PlaylistController {
     public Button btnCancel;
     public Button btnSavePlaylist;
 
