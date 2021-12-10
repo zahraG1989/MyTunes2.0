@@ -14,7 +14,7 @@ public class DAOTest {
        // getAllSongs();
         //updateSong();
         //deleteSongs();
-        //createPlayList();
+       // createPlayList();
         getAllPlaylists();
 
     }
@@ -96,8 +96,9 @@ public class DAOTest {
         PlayListDAO playListDAO = new PlayListDAO();
         List<Playlist> listOfPlaylist = playListDAO.getAllPlayList();
         for (Playlist p: listOfPlaylist) {
-            playListDAO.createPlayList(p);
+
             System.out.println("PlayList:" +p.getName());
         }
+
     }
 }
