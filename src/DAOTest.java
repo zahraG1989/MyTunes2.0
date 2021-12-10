@@ -11,11 +11,11 @@ import java.util.List;
 public class DAOTest {
     public static void main(String[] args) throws Exception {
         //createSong();
-       // getAllSongs();
+        //getAllSongs();
         //updateSong();
         //deleteSongs();
-       // createPlayList();
-        getAllPlaylists();
+        //createPlayList();
+        //getAllPlaylists();
 
     }
     public static void createSong() throws Exception {
