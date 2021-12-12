@@ -26,6 +26,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable, ControllerInterface {
     public Button btnDeleteSongFromPlaylist;
+    @FXML
+    private TableView <Playlist> playlistTable;
 
     @FXML
     private TableView<Song> songTable;
@@ -154,6 +156,18 @@ public class Controller implements Initializable, ControllerInterface {
         songTable.getItems().addAll(songModel.getListSongs());
 
     }
+    public void setUpPlaylistTable(){
+        TableColumn<Playlist,String> column1 = new TableColumn<>("Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        TableColumn<Playlist,String> column2 = new TableColumn<>("Songs");
+        column2.setCellValueFactory(new PropertyValueFactory<>("songs"));
+
+        playlistTable.getColumns().add(column1);
+        playlistTable.getColumns().add(column2);
+
+        // we have to add the Playlists to the Table -> create in PlaylistModel first
+    }
     @FXML
     private void closeWindow(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Close the Application ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
@@ -245,6 +259,5 @@ public class Controller implements Initializable, ControllerInterface {
 
 
 
-    //btnPlayMusic.setText("||");
 
 }

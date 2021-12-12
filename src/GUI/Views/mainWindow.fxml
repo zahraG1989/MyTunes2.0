@@ -14,11 +14,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="915.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Controller">
    <children>
-      <TableView layoutX="20.0" layoutY="187.0" prefHeight="380.0" prefWidth="226.0" style="-fx-background-color:  #FFDCFD;">
+      <TableView fx:id="playlistTable" layoutX="20.0" layoutY="187.0" prefHeight="380.0" prefWidth="226.0" style="-fx-background-color:  #FFDCFD;">
         <columns>
-          <TableColumn prefWidth="75.0" text="Name" />
-          <TableColumn prefWidth="75.0" text="Songs" />
-            <TableColumn prefWidth="75.0" text="Time" />
+          <TableColumn prefWidth="75.0" />
+          <TableColumn prefWidth="75.0" />
+            <TableColumn prefWidth="75.0" />
         </columns>
       </TableView>
       <ListView fx:id="listSongsOnPlaylist" layoutX="250.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" style="-fx-background-color: #FFDCFD;" />
