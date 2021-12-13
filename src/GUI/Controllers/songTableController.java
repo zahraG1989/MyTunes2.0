@@ -37,7 +37,7 @@ public class songTableController {
             Stage stage = (Stage) btnCancelAddingSong.getScene().getWindow();
             stage.close();
         }
-        
+
     }
 
     @FXML
@@ -46,6 +46,14 @@ public class songTableController {
 
     @FXML
     private void chooseCategory(ActionEvent actionEvent) {
+
+    }
+
+    @FXML
+    public void initialize() {
+        boxChooseCategory.getItems().removeAll(boxChooseCategory.getItems());
+        boxChooseCategory.getItems().addAll("Pop", "Rap", "Classic","Rock","Folk","Alternative","Soul","Reggae","Country");
+        boxChooseCategory.getSelectionModel().select("Pop");
     }
 }
 
