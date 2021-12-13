@@ -81,11 +81,17 @@ public class DAOTest {
         Playlist playlist3 = new Playlist(1,"MyThirdPlaylist");
         Playlist playlist4 = new Playlist(1,"MyFourthPlaylist");
         Playlist playlist5 = new Playlist(1,"MyFifthPlaylist");
+        Playlist playlist6 = new Playlist(1,"MySixthPlaylist");
+        Playlist playlist7 = new Playlist(1,"MySeventhPlaylist");
+        Playlist playlist8 = new Playlist(1,"MyEighthPlaylist");
         listOfPlaylist.add(playlist1);
         listOfPlaylist.add(playlist2);
         listOfPlaylist.add(playlist3);
         listOfPlaylist.add(playlist4);
         listOfPlaylist.add(playlist5);
+        listOfPlaylist.add(playlist6);
+        listOfPlaylist.add(playlist7);
+        listOfPlaylist.add(playlist8);
 
         for (Playlist p: listOfPlaylist) {
             playListDAO.createPlayList(p);
