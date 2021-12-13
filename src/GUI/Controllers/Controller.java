@@ -25,7 +25,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable, ControllerInterface {
-    public Button btnDeleteSongFromPlaylist;
+    @FXML
+    private Button btnDeleteSongFromPlaylist;
     @FXML
     private TableView <Playlist> playlistTable;
 
@@ -38,11 +39,12 @@ public class Controller implements Initializable, ControllerInterface {
     @FXML
     private  Button btnEditSongs;
 
+   // @FXML
+   // private ListView<Playlist> listSongsOnPlaylist;
+
+
     @FXML
-    private ListView<Playlist> listSongsOnPlaylist;
-
-
-    public Button btnDeleteSong;
+    private Button btnDeleteSong;
     @FXML
     private Button btnAppClose;
     @FXML
@@ -75,29 +77,33 @@ public class Controller implements Initializable, ControllerInterface {
     }
 
 
-
-
-
     public Controller() throws SQLException, IOException {
         playlistModel = new PlaylistModel();
-        listSongsOnPlaylist = new ListView<>();
         songModel = new SongModel();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println(playlistModel.getList().size());
-        listSongsOnPlaylist.setItems(playlistModel.getList());
         setUpTable();
-//        try {
-//           // SongModel songModel = new SongModel();
-//            //songTable.setItems(songModel.getListSongs());
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        setUpPlaylistTable();
+        try {
+            SongModel songModel = new SongModel();
+            songTable.setItems(songModel.getListSongs());
+       } catch (IOException e) {
+           e.printStackTrace();
+     } catch (SQLException e) {
+        e.printStackTrace();
+       }
+
+        try {
+            PlaylistModel  playlistModel = new PlaylistModel();
+            playlistTable.setItems(playlistModel.getListPlaylist());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
     }
     @FXML
@@ -160,13 +166,14 @@ public class Controller implements Initializable, ControllerInterface {
         TableColumn<Playlist,String> column1 = new TableColumn<>("Name");
         column1.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        TableColumn<Playlist,String> column2 = new TableColumn<>("Songs");
-        column2.setCellValueFactory(new PropertyValueFactory<>("songs"));
+       /* TableColumn<Playlist,String> column2 = new TableColumn<>("Songs");
+        column2.setCellValueFactory(new PropertyValueFactory<>("songs")); */
 
         playlistTable.getColumns().add(column1);
-        playlistTable.getColumns().add(column2);
+       // playlistTable.getColumns().add(column2);
+        playlistTable.getItems().addAll(playlistModel.getListPlaylist());
 
-        // we have to add the Playlists to the Table -> create in PlaylistModel first
+
     }
     @FXML
     private void closeWindow(ActionEvent actionEvent) {
