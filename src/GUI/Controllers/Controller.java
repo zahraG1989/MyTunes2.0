@@ -32,6 +32,9 @@ public class Controller implements Initializable, ControllerInterface {
     @FXML
     private TableView<Song> songTable;
     @FXML
+    private Button nextSongButton;
+    private Button songNumber;
+
     private Button btnNewSong, btnAddSong, btnEditSongs, btnDeleteSong, btnAppClose, btnPlayMusic, btnNewPlaylist, btnDeletePlaylist;
     @FXML
     private Button btnEditPlaylist, btnMoveSongDown, btnMoveSongUp, welcomeText, nextSongButton, previousSongButton, btnDeleteSongFromPlaylist;
@@ -82,8 +85,6 @@ public class Controller implements Initializable, ControllerInterface {
             file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
         }
         //File file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
-        // System.out.println("file:" + file.toURI().toString());
-        System.out.println("TEST: " + file.toURI().toString());
 
         Media media = new Media(file.toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -91,12 +92,16 @@ public class Controller implements Initializable, ControllerInterface {
     }
 
     @FXML
-    private void playNextSong(ActionEvent actionEvent) {
-        File file = new File("C:/Users/tunay/Desktop/Songs/Glass Animals - Heat Waves (Lyrics).mp3");
-        System.out.println("file:" + file.toURI().toString());
-        Media media = new Media(file.toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
+
+    private void playNextSong (ActionEvent actionEvent) {
+        //File file = new File("C:/Users/tunay/Desktop/Songs/Glass Animals - Heat Waves (Lyrics).mp3");
+        //System.out.println("file:" + file.toURI().toString());
+        //Media media = new Media(file.toURI().toString());
+        //MediaPlayer mediaPlayer = new MediaPlayer(media);
+        //mediaPlayer.play();
+        //if (songNumber< media.size() -1)
+          // songNumber ++;
+        //mediaPlayer.stop();
     }
 
     @FXML

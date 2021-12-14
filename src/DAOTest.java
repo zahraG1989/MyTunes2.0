@@ -95,7 +95,7 @@ public class DAOTest {
 
         for (Playlist p: listOfPlaylist) {
             playListDAO.createPlayList(p);
-            System.out.println("PlayList:" +p.getName()+" created.");
+            //System.out.println("PlayList:" +p.getName()+" created.");
         }
     }
     public static void getAllPlaylists() throws SQLException {
