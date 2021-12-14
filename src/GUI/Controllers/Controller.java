@@ -144,16 +144,19 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void playPreviousSong(ActionEvent actionEvent) {
-        File file = new File("C:/Users/tunay/Desktop/Songs/Kiss Kiss (Tarkan).mp3");
-        System.out.println("file:" + file.toURI().toString());
-        Media media = new Media(file.toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
+        if (songTable.getSelectionModel().getSelectedIndex() != -1) {
+            if (currentSong - 1 < 0) {
+                currentSong = songTable.getItems().size() - 1; // If the last element of the list is reached. Restarts the counter back to 0
+            } else {
+                currentSong--;
+            }
+            play(); //Calls itself to continue playing
+        }
     }
 
     private void play() {
 
-        if(mediaPlayer != null){
+        if (mediaPlayer != null) {
             stopMediaPlayer();
         }
 
@@ -178,7 +181,7 @@ public class Controller implements Initializable, ControllerInterface {
         });
     }
 
-    private void stopMediaPlayer(){
+    private void stopMediaPlayer() {
         if (mediaPlayer != null) {
             mediaPlayer.stop();
             mediaPlayer = null;
