@@ -144,7 +144,9 @@ public class Controller implements Initializable, ControllerInterface {
         mediaPlayer.play();
     }
     public void setUpTable(){
+
         // adds columns to tableView, PropertyValueFactory should correspond to properties in Song class
+
         TableColumn<Song, String> column1 = new TableColumn<>("Title");
         column1.setCellValueFactory(new PropertyValueFactory<>("name"));
 
@@ -169,11 +171,15 @@ public class Controller implements Initializable, ControllerInterface {
         TableColumn<Playlist,String> column1 = new TableColumn<>("Name");
         column1.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-       /* TableColumn<Playlist,String> column2 = new TableColumn<>("Songs");
-        column2.setCellValueFactory(new PropertyValueFactory<>("songs")); */
+        TableColumn<Playlist,String> column2 = new TableColumn<>("Songs");
+        column2.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+       /* TableColumn<Playlist,String> column3 = new TableColumn<>("Time");
+        column3.setCellValueFactory(new PropertyValueFactory<>("time"));*/
 
         playlistTable.getColumns().add(column1);
-       // playlistTable.getColumns().add(column2);
+        playlistTable.getColumns().add(column2);
+        //playlistTable.getColumns().add(column3);
         playlistTable.getItems().addAll(playlistModel.getListPlaylist());
 
 
