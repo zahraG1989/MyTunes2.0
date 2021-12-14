@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.File;
-import java.io.IOException;
 
 public class songTableController {
     @FXML
@@ -60,6 +59,9 @@ public class songTableController {
 
     @FXML
     public void initialize() {
+
+        //adds different Categories to the comboBox that the user can choose from
+
         boxChooseCategory.getItems().removeAll(boxChooseCategory.getItems());
         boxChooseCategory.getItems().addAll("Pop", "Rap", "Classic","Rock","Folk","Alternative","Soul","Reggae","Country");
         boxChooseCategory.getSelectionModel().select("Pop");
