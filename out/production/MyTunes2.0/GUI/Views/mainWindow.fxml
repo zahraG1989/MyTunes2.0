@@ -15,7 +15,7 @@
    <children>
       <TableView fx:id="playlistTable" layoutX="20.0" layoutY="187.0" prefHeight="380.0" prefWidth="226.0" />
       <ListView layoutX="250.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" />
-      <Slider layoutX="61.0" layoutY="84.0" prefHeight="16.0" prefWidth="123.0" />
+      <Slider fx:id="volumeSlider" blockIncrement="1.0" layoutX="11.0" layoutY="101.0" majorTickUnit="0.25" max="1.0" onMouseReleased="#setSound" prefHeight="38.0" prefWidth="166.0" showTickMarks="true" value="0.5" />
       <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="29.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
       <Button fx:id="btnDeletePlaylist" layoutX="147.0" layoutY="580.0" mnemonicParsing="false" onAction="#deletePlaylist" text="Delete" />

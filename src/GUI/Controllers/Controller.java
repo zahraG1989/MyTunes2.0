@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -28,19 +29,19 @@ public class Controller implements Initializable, ControllerInterface {
     @FXML
     private Button btnDeleteSongFromPlaylist;
     @FXML
-    private TableView <Playlist> playlistTable;
+    private TableView<Playlist> playlistTable;
 
     @FXML
     private TableView<Song> songTable;
     @FXML
-    private  Button btnNewSong;
+    private Button btnNewSong;
     @FXML
     private Button btnAddSong;
     @FXML
-    private  Button btnEditSongs;
+    private Button btnEditSongs;
 
-   // @FXML
-   // private ListView<Playlist> listSongsOnPlaylist;
+    // @FXML
+    // private ListView<Playlist> listSongsOnPlaylist;
 
 
     @FXML
@@ -52,7 +53,7 @@ public class Controller implements Initializable, ControllerInterface {
     @FXML
     private Button btnNewPlaylist;
     @FXML
-    private Button btnDeletePlaylist; 
+    private Button btnDeletePlaylist;
     @FXML
     private Button btnEditPlaylist;
     @FXML
@@ -61,6 +62,8 @@ public class Controller implements Initializable, ControllerInterface {
     private Button btnMoveSongUp;
     @FXML
     private Label welcomeText;
+    @FXML
+    private Slider volumeSlider;
 
     @FXML
     private Button nextSongButton;
@@ -71,6 +74,9 @@ public class Controller implements Initializable, ControllerInterface {
 
     private PlaylistModel playlistModel;
     private SongModel songModel;
+
+    MediaPlayer mediaPlayer;
+    int currentSong = -1;
 
     @FXML
     protected void onHelloButtonClick() {
@@ -90,14 +96,14 @@ public class Controller implements Initializable, ControllerInterface {
         try {
             SongModel songModel = new SongModel();
             songTable.setItems(songModel.getListSongs());
-       } catch (IOException e) {
-           e.printStackTrace();
-     } catch (SQLException e) {
-        e.printStackTrace();
-       }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         try {
-            PlaylistModel  playlistModel = new PlaylistModel();
+            PlaylistModel playlistModel = new PlaylistModel();
             playlistTable.setItems(playlistModel.getListPlaylist());
         } catch (IOException e) {
             e.printStackTrace();
@@ -107,44 +113,77 @@ public class Controller implements Initializable, ControllerInterface {
 
 
     }
+
     @FXML
     private void playMusic(ActionEvent actionEvent) {
-        File file=null;
-        if(songTable.getSelectionModel().getSelectedItem()!=null) {
-            file = new File(songTable.getSelectionModel().getSelectedItem().getSongFile());
+        if (mediaPlayer != null && currentSong == songTable.getSelectionModel().getSelectedIndex()) {
+            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+                mediaPlayer.pause();
+            else if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED || mediaPlayer.getStatus() == MediaPlayer.Status.STOPPED) {
+                mediaPlayer.play();
+            }
         } else {
-            file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
+            currentSong = songTable.getSelectionModel().getFocusedIndex();
+            play();
         }
-        //File file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
-       // System.out.println("file:" + file.toURI().toString());
-        //System.out.println("TEST: "+file.toURI().toString());
-
-        Media media = new Media(file.toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
     }
 
     @FXML
-    private void playNextSong (ActionEvent actionEvent) {
-        //File file = new File("C:/Users/tunay/Desktop/Songs/Glass Animals - Heat Waves (Lyrics).mp3");
-        //System.out.println("file:" + file.toURI().toString());
-        //Media media = new Media(file.toURI().toString());
-        //MediaPlayer mediaPlayer = new MediaPlayer(media);
-        //mediaPlayer.play();
-        //if (songNumber< media.size() -1)
-          // songNumber ++;
-        //mediaPlayer.stop();
+    private void playNextSong(ActionEvent actionEvent) {
+        if (songTable.getSelectionModel().getSelectedIndex() != -1) {
+            if (songTable.getItems().size() == currentSong + 1) {
+                currentSong = 0; // If the last element of the list is reached. Restarts the counter back to 0
+            } else {
+                currentSong++;
+            }
+            play(); //Calls itself to continue playing
+        }
     }
 
     @FXML
-    private void playPreviousSong (ActionEvent actionEvent) {
+    private void playPreviousSong(ActionEvent actionEvent) {
         File file = new File("C:/Users/tunay/Desktop/Songs/Kiss Kiss (Tarkan).mp3");
         System.out.println("file:" + file.toURI().toString());
         Media media = new Media(file.toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
     }
-    public void setUpTable(){
+
+    private void play() {
+
+        if(mediaPlayer != null){
+            stopMediaPlayer();
+        }
+
+        File file = new File(songTable.getItems().get(currentSong).getSongFile());
+
+        Media media = new Media(file.toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        setVolume();
+        mediaPlayer.play();
+
+        mediaPlayer.setOnEndOfMedia(() -> { // On end of media checks if the next song is valid to be played.
+            if (songTable.getSelectionModel().getSelectedIndex() != -1) {
+                if (songTable.getItems().size() == currentSong + 1) {
+                    currentSong = 0; // If the last element of the list is reached. Restarts the counter back to 0
+                } else {
+                    currentSong++;
+                }
+                play(); //Calls itself to continue playing
+            } else {
+                stopMediaPlayer(); //If no song is selected. Then stop the playing music.
+            }
+        });
+    }
+
+    private void stopMediaPlayer(){
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer = null;
+        }
+    }
+
+    public void setUpTable() {
         // adds columns to tableView, PropertyValueFactory should correspond to properties in Song class
         TableColumn<Song, String> column1 = new TableColumn<>("Title");
         column1.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -166,19 +205,21 @@ public class Controller implements Initializable, ControllerInterface {
         songTable.getItems().addAll(songModel.getListSongs());
 
     }
-    public void setUpPlaylistTable(){
-        TableColumn<Playlist,String> column1 = new TableColumn<>("Name");
+
+    public void setUpPlaylistTable() {
+        TableColumn<Playlist, String> column1 = new TableColumn<>("Name");
         column1.setCellValueFactory(new PropertyValueFactory<>("name"));
 
        /* TableColumn<Playlist,String> column2 = new TableColumn<>("Songs");
         column2.setCellValueFactory(new PropertyValueFactory<>("songs")); */
 
         playlistTable.getColumns().add(column1);
-       // playlistTable.getColumns().add(column2);
+        // playlistTable.getColumns().add(column2);
         playlistTable.getItems().addAll(playlistModel.getListPlaylist());
 
 
     }
+
     @FXML
     private void closeWindow(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Close the Application ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
@@ -192,6 +233,7 @@ public class Controller implements Initializable, ControllerInterface {
         }
 
     }
+
     @FXML
     private void openNewSongWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -218,17 +260,17 @@ public class Controller implements Initializable, ControllerInterface {
 
 
     @FXML
-    private  void deletePlaylist(ActionEvent actionEvent) {
+    private void deletePlaylist(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
     @FXML
-    private  void editPlaylist(ActionEvent actionEvent) {
+    private void editPlaylist(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
     @FXML
-    private  void moveSongDown(ActionEvent actionEvent) {
+    private void moveSongDown(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
@@ -248,7 +290,7 @@ public class Controller implements Initializable, ControllerInterface {
     }
 
     @FXML
-    private  void editSong(ActionEvent actionEvent) {
+    private void editSong(ActionEvent actionEvent) {
         System.out.println("works too");
     }
 
@@ -269,6 +311,12 @@ public class Controller implements Initializable, ControllerInterface {
     }
 
 
+    public void setSound(MouseEvent mouseEvent) {
+        setVolume();
+    }
 
+    public void setVolume() {
+        mediaPlayer.setVolume(volumeSlider.getValue());
+    }
 
 }
