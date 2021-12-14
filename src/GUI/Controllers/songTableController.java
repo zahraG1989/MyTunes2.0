@@ -3,15 +3,18 @@ package GUI.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
-import java.io.IOException;
+import java.io.File;
 
 public class songTableController {
     @FXML
@@ -24,6 +27,11 @@ public class songTableController {
     private Button btnSaveNewSong;
 
     public void chooseFile(ActionEvent actionEvent) {
+        // double clicking on the "choose" button will open another window with your computer´s files
+        Window window = ((Node) (actionEvent.getSource())).getScene().getWindow();
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(window);
+        actionEvent.consume();
     }
 
     @FXML
@@ -51,6 +59,9 @@ public class songTableController {
 
     @FXML
     public void initialize() {
+
+        //adds different Categories to the comboBox that the user can choose from
+
         boxChooseCategory.getItems().removeAll(boxChooseCategory.getItems());
         boxChooseCategory.getItems().addAll("Pop", "Rap", "Classic","Rock","Folk","Alternative","Soul","Reggae","Country");
         boxChooseCategory.getSelectionModel().select("Pop");
