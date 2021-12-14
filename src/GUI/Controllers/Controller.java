@@ -64,6 +64,7 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private Button nextSongButton;
+    private Button songNumber;
 
     @FXML
     private Button previousSongButton;
@@ -116,7 +117,7 @@ public class Controller implements Initializable, ControllerInterface {
         }
         //File file = new File("C:/Users/tunay/Desktop/Songs/Mecano - Hijo de la Luna.mp3");
        // System.out.println("file:" + file.toURI().toString());
-        System.out.println("TEST: "+file.toURI().toString());
+        //System.out.println("TEST: "+file.toURI().toString());
 
         Media media = new Media(file.toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -125,11 +126,14 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void playNextSong (ActionEvent actionEvent) {
-        File file = new File("C:/Users/tunay/Desktop/Songs/Glass Animals - Heat Waves (Lyrics).mp3");
-        System.out.println("file:" + file.toURI().toString());
-        Media media = new Media(file.toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
+        //File file = new File("C:/Users/tunay/Desktop/Songs/Glass Animals - Heat Waves (Lyrics).mp3");
+        //System.out.println("file:" + file.toURI().toString());
+        //Media media = new Media(file.toURI().toString());
+        //MediaPlayer mediaPlayer = new MediaPlayer(media);
+        //mediaPlayer.play();
+        //if (songNumber< media.size() -1)
+          // songNumber ++;
+        //mediaPlayer.stop();
     }
 
     @FXML
