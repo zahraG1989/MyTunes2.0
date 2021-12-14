@@ -12,11 +12,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.File;
 
 import java.io.IOException;
@@ -250,6 +253,10 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void deleteSong(ActionEvent actionEvent) {
+        btnDeleteSong.getOnMouseClicked();
+
+
+        /*
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete the Song ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
         //comments
@@ -258,13 +265,10 @@ public class Controller implements Initializable, ControllerInterface {
 
             Stage stage = (Stage) btnDeleteSong.getScene().getWindow();
             stage.close();
+            */
 
             /* We have to adapt this method so that it actually deletes the Song.
             For now it is just closing everything. */
         }
     }
 
-
-
-
-}
