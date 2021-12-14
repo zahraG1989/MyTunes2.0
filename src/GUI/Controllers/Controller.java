@@ -194,7 +194,6 @@ public class Controller implements Initializable, ControllerInterface {
         TableColumn<Song, String> column1 = new TableColumn<>("Title");
         column1.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-
         TableColumn<Song, String> column2 = new TableColumn<>("Artist");
         column2.setCellValueFactory(new PropertyValueFactory<>("artist"));
 
@@ -299,8 +298,14 @@ public class Controller implements Initializable, ControllerInterface {
     }
 
     @FXML
-    private void editSong(ActionEvent actionEvent) {
-        System.out.println("works too");
+    private void editSong(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/songTable.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("New Song");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -309,8 +314,7 @@ public class Controller implements Initializable, ControllerInterface {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete the Song ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
 
-        if (alert.getResult() == ButtonType.YES) {
-
+       // if (songTable.getSelectionModel().getSelectedIndex() != -1 == ButtonType.YES); {
 
 
 
@@ -322,7 +326,7 @@ public class Controller implements Initializable, ControllerInterface {
             /* We have to adapt this method so that it actually deletes the Song.
             For now it is just closing everything. */
         }
-    }
+
 
 
     public void setSound(MouseEvent mouseEvent) {
