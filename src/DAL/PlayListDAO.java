@@ -49,4 +49,18 @@ public class PlayListDAO {
 
     }
 
+    public void deletePlaylist(Playlist selectedItem) {
+        PlayListDAO playList = new PlayListDAO();
+        try (Connection con= cm.getConnection()){
+            String sqlDeletePlayList="DELETE FROM Playlists WHERE id=?;";
+            PreparedStatement statementDeletePlayList= con.prepareStatement(sqlDeletePlayList);
+            statementDeletePlayList.setInt(1,selectedItem.getId());
+            statementDeletePlayList.execute();
+        } catch (SQLServerException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -24,5 +24,8 @@ public class PlaylistManager {
         throw new Exception();
     }
 
+    public void deletePlaylist(Playlist selectedItem) {
+        PlayListDAO.deletePlaylist(selectedItem);
+    }
 }
 

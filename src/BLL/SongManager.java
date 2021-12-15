@@ -24,4 +24,12 @@ public class SongManager {
         }
         throw new Exception();
     }
+
+    public void deleteSong(Song selectedItem) {
+        try {
+            songDAO.deleteSong(selectedItem);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -73,6 +73,8 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private Button previousSongButton;
+    @FXML
+    private ListView<Song> songOnPlayList;
 
     private PlaylistModel playlistModel;
     private SongModel songModel;
@@ -269,7 +271,10 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void deletePlaylist(ActionEvent actionEvent) {
-        System.out.println("works too");
+
+        //System.out.println("works too"+ playlistTable.getSelectionModel().getSelectedItem());
+        playlistModel.deletePlaylist(playlistTable.getSelectionModel().getSelectedItem());
+        playlistTable.getItems().remove(playlistTable.getSelectionModel().getSelectedIndex());
     }
 
     @FXML
@@ -289,12 +294,17 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void deleteSongFromPlaylist(ActionEvent actionEvent) {
-        System.out.println("works too");
+        songOnPlayList.getItems().remove(songOnPlayList.getSelectionModel().getSelectedIndex());
+        playlistModel.deletePlaylist(playlistTable.getSelectionModel().getSelectedItem());
+        //System.out.println("Selected Song id in listView: "+songOnPlayList.getSelectionModel().getSelectedIndex());
     }
 
     @FXML
     private void addSongToPlaylist(ActionEvent actionEvent) {
         System.out.println("works too");
+        System.out.println(songTable.getSelectionModel().getSelectedItem());
+        songOnPlayList.getItems().add(songTable.getSelectionModel().getSelectedItem());
+
     }
 
     @FXML
@@ -316,6 +326,7 @@ public class Controller implements Initializable, ControllerInterface {
 
        // if (songTable.getSelectionModel().getSelectedIndex() != -1 == ButtonType.YES); {
 
+            songModel.deleteSong(songTable.getSelectionModel().getSelectedItem());
 
 
             /*Stage stage = (Stage) btnDeleteSong.getScene().getWindow();

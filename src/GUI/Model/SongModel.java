@@ -27,4 +27,7 @@ public class SongModel {
         return listSongs;
     }
 
+    public void deleteSong(Song selectedItem) {
+        songManager.deleteSong(selectedItem);
+    }
 }
