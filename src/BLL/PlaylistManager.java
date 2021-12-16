@@ -13,7 +13,7 @@ public class PlaylistManager {
         PlayListDAO = new PlayListDAO();
     }
 
-    public List<Playlist> getAllPlaylist() throws SQLException {
+    public List<Playlist> getAllPlaylist() throws SQLException { //gets playlist from database
         return PlayListDAO.getAllPlayList();
     }
 
@@ -24,5 +24,8 @@ public class PlaylistManager {
         throw new Exception();
     }
 
+    public void deletePlaylist(Playlist selectedItem) {
+        PlayListDAO.deletePlaylist(selectedItem);
+    }
 }
 

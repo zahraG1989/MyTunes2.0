@@ -36,6 +36,7 @@ public class songTableController {
 
     @FXML
     private void cancelAddingSong(ActionEvent actionEvent) {
+        //before canceling adding a song, user has to confirm the cancellation
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
         //comments

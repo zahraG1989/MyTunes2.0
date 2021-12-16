@@ -37,18 +37,9 @@ public class SongDAO {
         }
     }
     public List<Song> getAllSongs () throws SQLException {
-       /* List<Song> songList = new ArrayList<>();
-        Song song1 = new Song(1,"Easy","HipHop","src/musicFiles/videoplayback.mp3","Zahra");
-        Song song2 = new Song(1,"1000 Träume Weit (Tornero)","Rock","src/musicFiles/videoplayback.mp3","Zahra");
-        Song song3 = new Song(1,"Hi Kids","Latin","src/musicFiles/videoplayback.mp3","Zahra");
-        Song song4 = new Song(1,"Heat Waves","Pop","src/musicFiles/","Tunay");
-        songList.add(song1);
-        songList.add(song2);
-        songList.add(song3);*/
-
         List<Song> songList = new ArrayList<>();
         try(Connection con= cm.getConnection()) {
-            String sqlSelectSong= "SELECT * FROM SONGS;";
+            String sqlSelectSong= "SELECT * FROM Songs;";
             PreparedStatement pststmtmtselectSong = con.prepareStatement(sqlSelectSong);
 
             ResultSet rs = pststmtmtselectSong.executeQuery();

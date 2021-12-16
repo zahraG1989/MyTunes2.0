@@ -14,8 +14,8 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="915.0" style="-fx-background-color: #FFDCFD #FFDCFD #FFDCFD #FFDCFD;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Controller">
    <children>
       <TableView fx:id="playlistTable" layoutX="20.0" layoutY="187.0" prefHeight="380.0" prefWidth="226.0" />
-      <ListView layoutX="250.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" />
-      <Slider fx:id="volumeSlider" blockIncrement="1.0" layoutX="11.0" layoutY="101.0" majorTickUnit="0.25" max="1.0" onMouseReleased="#setSound" prefHeight="38.0" prefWidth="166.0" showTickMarks="true" value="0.5" />
+      <ListView fx:id="songOnPlayList" layoutX="250.0" layoutY="187.0" prefHeight="380.0" prefWidth="159.0" />
+      <Slider fx:id="volumeSlider" blockIncrement="1.0" layoutX="41.0" layoutY="99.0" majorTickUnit="0.25" max="1.0" onMouseReleased="#setSound" prefHeight="38.0" prefWidth="166.0" showTickMarks="true" value="0.5" />
       <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="29.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
       <Button fx:id="btnDeletePlaylist" layoutX="137.0" layoutY="580.0" mnemonicParsing="false" onAction="#deletePlaylist" text="Delete" />
@@ -59,7 +59,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="84.0" layoutY="26.0" mnemonicParsing="false" onAction="#playMusic" prefHeight="62.0" prefWidth="64.0" rotate="90.0" style="-fx-background-radius: 100;" text="▲">
+      <Button layoutX="84.0" layoutY="26.0" mnemonicParsing="false" onAction="#playStopMusic" prefHeight="62.0" prefWidth="64.0" rotate="90.0" style="-fx-background-radius: 100;" text="▲">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Button>
