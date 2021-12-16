@@ -1,6 +1,7 @@
 package BE;
 
 public class Playlist {
+    //this class only contains the properties each Playlist needs + getters and toString
     private int id;
     private String name;
     private int songs;
@@ -16,17 +17,10 @@ public class Playlist {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public String toString() {
