@@ -48,7 +48,7 @@ public class SongDAO {
 
         List<Song> songList = new ArrayList<>();
         try(Connection con= cm.getConnection()) {
-            String sqlSelectSong= "SELECT * FROM SONGS;";
+            String sqlSelectSong= "SELECT * FROM Songs;";
             PreparedStatement pststmtmtselectSong = con.prepareStatement(sqlSelectSong);
 
             ResultSet rs = pststmtmtselectSong.executeQuery();

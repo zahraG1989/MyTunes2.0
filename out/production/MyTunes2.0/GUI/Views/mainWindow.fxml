@@ -59,7 +59,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="84.0" layoutY="26.0" mnemonicParsing="false" onAction="#playMusic" prefHeight="62.0" prefWidth="64.0" rotate="90.0" style="-fx-background-radius: 100;" text="▲">
+      <Button layoutX="84.0" layoutY="26.0" mnemonicParsing="false" onAction="#playStopMusic" prefHeight="62.0" prefWidth="64.0" rotate="90.0" style="-fx-background-radius: 100;" text="▲">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Button>
