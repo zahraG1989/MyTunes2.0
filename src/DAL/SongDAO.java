@@ -13,6 +13,7 @@ public class SongDAO {
     public SongDAO() throws IOException {
         cm = new ConnectionManager();
     }
+    //Insert values to the Songs table.
     public Song createSong(Song song) throws Exception {
         Song songCreated=null;
         try(Connection con = cm.getConnection()){
@@ -36,6 +37,7 @@ public class SongDAO {
             return songCreated;
         }
     }
+    //Select everything from Song table.
     public List<Song> getAllSongs () throws SQLException {
         List<Song> songList = new ArrayList<>();
         try(Connection con= cm.getConnection()) {
@@ -57,7 +59,7 @@ public class SongDAO {
         return songList;
     }
 
-
+    //Update songs from database.
     public void updateSong(Song song) throws SQLException {
     try(Connection con= cm.getConnection()){
         String sqlUpdateSong= "UPDATE Songs SET Sname=?, Categori=?, songFile=?,artist=? WHERE ID=?;";
@@ -71,6 +73,7 @@ public class SongDAO {
         ResultSet rs = pststmtUpdateSong.getGeneratedKeys();
     }
     }
+    //Delete songs from database,can re undo it from DAOTest.
     public void deleteSong(Song song) throws SQLException {
         try(Connection con = cm.getConnection()){
             String sqlDeleteSong= "DELETE FROM Songs WHERE ID=?;";
