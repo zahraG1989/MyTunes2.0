@@ -297,7 +297,7 @@ public class Controller implements Initializable {
     private void editSong(ActionEvent actionEvent) throws IOException {
         //opens the songTable.fxml
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/songTable.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/editSong.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Edit Song");
