@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="348.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.songTableController">
+    <children>
+        <Label layoutX="84.0" layoutY="87.0" text="Title:">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="50.0" layoutY="164.0" text="Category:">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="80.0" layoutY="124.0" text="Artist:">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="94.0" layoutY="239.0" text="File:">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="81.0" layoutY="203.0" text="Time:">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="159.0" layoutY="85.0" prefHeight="26.0" prefWidth="178.0" promptText="enter song title" />
+        <TextField layoutX="159.0" layoutY="122.0" prefHeight="26.0" prefWidth="178.0" promptText="enter artist " />
+        <TextField layoutX="159.0" layoutY="237.0" prefHeight="26.0" prefWidth="178.0" />
+        <TextField layoutX="159.0" layoutY="201.0" prefHeight="26.0" prefWidth="109.0" />
+        <Button layoutX="281.0" layoutY="162.0" mnemonicParsing="false" text="More..." />
+        <Button fx:id="btnChooseFile" layoutX="351.0" layoutY="238.0" mnemonicParsing="false" onAction="#chooseFile" text="Choose..." />
+        <Button fx:id="btnCancelAddingSong" layoutX="287.0" layoutY="295.0" mnemonicParsing="false" onAction="#cancelAddingSong" text="Cancel" />
+        <Button fx:id="btnSaveNewSong" layoutX="374.0" layoutY="295.0" mnemonicParsing="false" onAction="#saveNewSong" text="Save" />
+        <ComboBox fx:id="boxChooseCategory" layoutX="159.0" layoutY="161.0" onAction="#chooseCategory" prefHeight="26.0" prefWidth="109.0" />
+    </children>
+</AnchorPane>
