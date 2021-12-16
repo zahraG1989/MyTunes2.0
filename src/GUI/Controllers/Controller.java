@@ -256,7 +256,9 @@ public class Controller implements Initializable {
 
     @FXML
     private void deletePlaylist(ActionEvent actionEvent) {
-        // deletes a Playlist from database
+        // deletes a Playlist from database, user need to confirm first
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete the Playlist ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+        alert.showAndWait();
         playlistModel.deletePlaylist(playlistTable.getSelectionModel().getSelectedItem());
         playlistTable.getItems().remove(playlistTable.getSelectionModel().getSelectedIndex());
     }
@@ -277,6 +279,7 @@ public class Controller implements Initializable {
     @FXML
     private void deleteSongFromPlaylist(ActionEvent actionEvent) {
         //deletes a Song only from the selected Playlist, not from the database
+
         songOnPlayList.getItems().remove(songOnPlayList.getSelectionModel().getSelectedIndex());
         playlistModel.deletePlaylist(playlistTable.getSelectionModel().getSelectedItem());
 
