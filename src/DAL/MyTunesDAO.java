@@ -1,4 +1,4 @@
-package DAL;
+ package DAL;
 
 import BE.Song;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyTunesDAO {
+/*public class MyTunesDAO {
     ConnectionManager cm;
     public MyTunesDAO() throws IOException {
         cm = new ConnectionManager();
@@ -39,5 +39,5 @@ public class MyTunesDAO {
     }
     String SQLINSERT;
 
-}
+}*/
 
