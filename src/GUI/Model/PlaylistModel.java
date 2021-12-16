@@ -28,5 +28,9 @@ public class PlaylistModel {
     public ObservableList<Playlist> getListPlaylist() {
         return listPlaylist;
     }
+
+    public void deletePlaylist(Playlist selectedItem) {
+        playlistManager.deletePlaylist(selectedItem);
+    }
 }
 
