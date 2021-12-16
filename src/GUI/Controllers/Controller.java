@@ -300,10 +300,10 @@ public class Controller implements Initializable, ControllerInterface {
     @FXML
     private void editSong(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/songTable.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/editSong.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
-        stage.setTitle("New Song");
+        stage.setTitle("Edit Song");
         stage.setScene(new Scene(root));
         stage.show();
     }
