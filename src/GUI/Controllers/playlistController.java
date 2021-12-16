@@ -1,11 +1,14 @@
 package GUI.Controllers;
 
+import BE.Song;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+
+import java.awt.event.KeyEvent;
 
 public class playlistController {
     @FXML
@@ -30,3 +33,4 @@ public class playlistController {
     public void savePlaylist(ActionEvent actionEvent) {
     }
 }
+

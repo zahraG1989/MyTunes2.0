@@ -39,7 +39,7 @@ public class SongDAO {
     public List<Song> getAllSongs () throws SQLException {
         List<Song> songList = new ArrayList<>();
         try(Connection con= cm.getConnection()) {
-            String sqlSelectSong= "SELECT * FROM SONGS;";
+            String sqlSelectSong= "SELECT * FROM Songs;";
             PreparedStatement pststmtmtselectSong = con.prepareStatement(sqlSelectSong);
 
             ResultSet rs = pststmtmtselectSong.executeQuery();

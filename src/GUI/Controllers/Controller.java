@@ -101,7 +101,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void playMusic(ActionEvent actionEvent) {
+    private void playStopMusic (ActionEvent actionEvent) {
         if (mediaPlayer != null && currentSong == songTable.getSelectionModel().getSelectedIndex()) {
             if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
                 mediaPlayer.pause();
