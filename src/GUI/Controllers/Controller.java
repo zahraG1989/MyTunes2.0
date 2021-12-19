@@ -4,7 +4,6 @@ import BE.Playlist;
 import BE.Song;
 import GUI.Model.PlaylistModel;
 import GUI.Model.SongModel;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,14 +12,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.File;
 
 import java.io.IOException;
@@ -28,12 +25,11 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable, ControllerInterface {
+public class Controller implements Initializable {
     @FXML
     private Button btnDeleteSongFromPlaylist;
     @FXML
     private TableView<Playlist> playlistTable;
-
     @FXML
     private TableView<Song> songTable;
     @FXML
@@ -42,11 +38,6 @@ public class Controller implements Initializable, ControllerInterface {
     private Button btnAddSong;
     @FXML
     private Button btnEditSongs;
-
-    // @FXML
-    // private ListView<Playlist> listSongsOnPlaylist;
-
-
     @FXML
     private Button btnDeleteSong;
     @FXML
@@ -64,13 +55,9 @@ public class Controller implements Initializable, ControllerInterface {
     @FXML
     private Button btnMoveSongUp;
     @FXML
-    private Label welcomeText;
-    @FXML
     private Slider volumeSlider;
-
     @FXML
     private Button nextSongButton;
-
     @FXML
     private Button previousSongButton;
     @FXML
@@ -81,11 +68,6 @@ public class Controller implements Initializable, ControllerInterface {
 
     MediaPlayer mediaPlayer;
     int currentSong = -1;
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to MyTunes Application!");
-    }
 
 
     public Controller() throws SQLException, IOException {
@@ -214,6 +196,7 @@ public class Controller implements Initializable, ControllerInterface {
     }
 
     public void setUpPlaylistTable() {
+        //adds columns to PlaylistTable, PropertyValueFactory should correspond to properties in Playlist class
         TableColumn<Playlist, String> column1 = new TableColumn<>("Name");
         column1.setCellValueFactory(new PropertyValueFactory<>("name"));
 
@@ -234,7 +217,7 @@ public class Controller implements Initializable, ControllerInterface {
     private void closeWindow(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Close the Application ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
-
+        // when closeWindow button is clicked, confirmation window pops up -> user has to confirm if window should be closed
 
         if (alert.getResult() == ButtonType.YES) {
 
@@ -246,6 +229,7 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void openNewSongWindow(ActionEvent actionEvent) throws IOException {
+        // when "new.." button under Song table is clicked, the songTable.fxml window will open
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/songTable.fxml"));
         Parent root = loader.load();
@@ -257,6 +241,7 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void openNewPlaylistWindow(ActionEvent actionEvent) throws IOException {
+        //when the "new..." button under playlist table is clicked, the playlist.fxml window will open
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("GUI/Views/playlist.fxml"));
         Parent root = loader.load();
@@ -271,37 +256,38 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void deletePlaylist(ActionEvent actionEvent) {
-
-        //System.out.println("works too"+ playlistTable.getSelectionModel().getSelectedItem());
+        // deletes a Playlist from database, user need to confirm first
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete the Playlist ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+        alert.showAndWait();
         playlistModel.deletePlaylist(playlistTable.getSelectionModel().getSelectedItem());
         playlistTable.getItems().remove(playlistTable.getSelectionModel().getSelectedIndex());
     }
 
     @FXML
     private void editPlaylist(ActionEvent actionEvent) {
-        System.out.println("works too");
     }
 
     @FXML
     private void moveSongDown(ActionEvent actionEvent) {
-        System.out.println("works too");
     }
 
     @FXML
     private void moveSongUp(ActionEvent actionEvent) {
-        System.out.println("works too");
+
     }
 
     @FXML
     private void deleteSongFromPlaylist(ActionEvent actionEvent) {
+        //deletes a Song only from the selected Playlist, not from the database
+
         songOnPlayList.getItems().remove(songOnPlayList.getSelectionModel().getSelectedIndex());
         playlistModel.deletePlaylist(playlistTable.getSelectionModel().getSelectedItem());
-        //System.out.println("Selected Song id in listView: "+songOnPlayList.getSelectionModel().getSelectedIndex());
+
     }
 
     @FXML
     private void addSongToPlaylist(ActionEvent actionEvent) {
-        System.out.println("works too");
+        // when button is clicked, selected song will be added to current playlist
         System.out.println(songTable.getSelectionModel().getSelectedItem());
         songOnPlayList.getItems().add(songTable.getSelectionModel().getSelectedItem());
 
@@ -309,42 +295,38 @@ public class Controller implements Initializable, ControllerInterface {
 
     @FXML
     private void editSong(ActionEvent actionEvent) throws IOException {
+        //opens the songTable.fxml
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/songTable.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("./GUI/Views/editSong.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
-        stage.setTitle("New Song");
+        stage.setTitle("Edit Song");
         stage.setScene(new Scene(root));
         stage.show();
     }
 
     @FXML
     private void deleteSong(ActionEvent actionEvent) {
+        //deletes Song from database, before deleting the user has to confirm the action
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete the Song ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
 
-       // if (songTable.getSelectionModel().getSelectedIndex() != -1 == ButtonType.YES); {
-
             songModel.deleteSong(songTable.getSelectionModel().getSelectedItem());
+        alert.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
+            System.out.println("OK chosen");
+        });
 
-
-            /*Stage stage = (Stage) btnDeleteSong.getScene().getWindow();
-            stage.close();
-            */
-
-
-            /* We have to adapt this method so that it actually deletes the Song.
-            For now it is just closing everything. */
         }
 
 
-
     public void setSound(MouseEvent mouseEvent) {
+        //calls the setVolume() method in order to change the volume
         setVolume();
     }
 
     public void setVolume() {
+        //allows the user to change the volume by using the volume slider
         mediaPlayer.setVolume(volumeSlider.getValue());
     }
 

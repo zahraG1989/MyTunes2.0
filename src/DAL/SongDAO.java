@@ -13,6 +13,7 @@ public class SongDAO {
     public SongDAO() throws IOException {
         cm = new ConnectionManager();
     }
+    //Insert values to the Songs table.
     public Song createSong(Song song) throws Exception {
         Song songCreated=null;
         try(Connection con = cm.getConnection()){
@@ -36,16 +37,8 @@ public class SongDAO {
             return songCreated;
         }
     }
+    //Select everything from Song table.
     public List<Song> getAllSongs () throws SQLException {
-       /* List<Song> songList = new ArrayList<>();
-        Song song1 = new Song(1,"Easy","HipHop","src/musicFiles/videoplayback.mp3","Zahra");
-        Song song2 = new Song(1,"1000 Träume Weit (Tornero)","Rock","src/musicFiles/videoplayback.mp3","Zahra");
-        Song song3 = new Song(1,"Hi Kids","Latin","src/musicFiles/videoplayback.mp3","Zahra");
-        Song song4 = new Song(1,"Heat Waves","Pop","src/musicFiles/","Tunay");
-        songList.add(song1);
-        songList.add(song2);
-        songList.add(song3);*/
-
         List<Song> songList = new ArrayList<>();
         try(Connection con= cm.getConnection()) {
             String sqlSelectSong= "SELECT * FROM Songs;";
@@ -66,7 +59,7 @@ public class SongDAO {
         return songList;
     }
 
-
+    //Update songs from database.
     public void updateSong(Song song) throws SQLException {
     try(Connection con= cm.getConnection()){
         String sqlUpdateSong= "UPDATE Songs SET Sname=?, Categori=?, songFile=?,artist=? WHERE ID=?;";
@@ -80,6 +73,7 @@ public class SongDAO {
         ResultSet rs = pststmtUpdateSong.getGeneratedKeys();
     }
     }
+    //Delete songs from database,can re undo it from DAOTest.
     public void deleteSong(Song song) throws SQLException {
         try(Connection con = cm.getConnection()){
             String sqlDeleteSong= "DELETE FROM Songs WHERE ID=?;";
