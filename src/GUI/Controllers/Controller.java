@@ -313,6 +313,9 @@ public class Controller implements Initializable {
         alert.showAndWait();
 
             songModel.deleteSong(songTable.getSelectionModel().getSelectedItem());
+        alert.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
+            System.out.println("OK chosen");
+        });
 
         }
 
